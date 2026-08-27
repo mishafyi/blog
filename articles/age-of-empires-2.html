@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<title>Age of Empires 2.0 — The Nation-State Was the Anomaly</title>
+<meta name="description" content="The nation-state governed the world for a hundred years. Empire governed it for four thousand. From the EU to China to the U.S., the reversion to imperial structures is already underway.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Age of Empires 2.0 — The Nation-State Was the Anomaly">
+<meta property="og:description" content="The nation-state governed the world for a hundred years. Empire governed it for four thousand. The reversion is already underway.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mishafyi.github.io/blog/articles/age-of-empires-2.html">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@mishafyi">
+<meta name="twitter:title" content="Age of Empires 2.0 — The Nation-State Was the Anomaly">
+<meta name="twitter:description" content="The nation-state governed the world for a hundred years. Empire governed it for four thousand. The reversion is already underway.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+<style>/* ============================================================
+   Shared "chrome" for every Thought Horizon article.
+   Loaded at the END of <body> so it deterministically wins over
+   any leftover chrome rules in an article's own <style>.
+   Colors come from each article's :root; fallbacks cover the
+   two palette dialects (--bg-card vs --surface, etc.).
+   Mono + serif resolve to whichever face the article loaded.
+   ============================================================ */
+
+:root {
+  --th-card: var(--bg-card, var(--surface, #141418));
+  --th-muted: var(--text-muted, var(--text-dim, #8a8880));
+  --th-glow: var(--accent-glow, rgba(127, 127, 127, 0.12));
+  --th-mono: "JetBrains Mono", ui-monospace, monospace;
+  --th-serif: "Instrument Serif", "Playfair Display", Georgia, serif;
+  --th-width: var(--content-width, 740px);
+}
+
+/* ── Grain overlay ── */
+.th .grain {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* ── Back link ── */
+.th .blog-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 32px;
+  z-index: 100;
+}
+.th .blog-nav a {
+  font-family: var(--th-mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--th-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.th .blog-nav a:hover {
+  color: var(--accent);
+}
+.th .blog-nav .arrow {
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform 0.2s ease;
+}
+.th .blog-nav a:hover .arrow {
+  transform: translateX(-3px);
+}
+
+/* ── Footer ── */
+.th .site-footer {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 48px 24px 8px;
+  font-family: var(--th-mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.th .site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Like button ── */
+.th .like-section {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 8px 24px 40px;
+  display: flex;
+  justify-content: center;
+}
+.th .like-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--th-card);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  color: var(--text-dim);
+  font-family: var(--th-mono);
+  font-size: 14px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.th .like-btn:hover {
+  border-color: var(--accent);
+  transform: scale(1.04);
+  box-shadow: 0 0 20px var(--th-glow);
+}
+.th .like-btn.liked {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.th .like-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: fill 0.3s, transform 0.3s;
+}
+.th .like-btn.liked .like-icon {
+  fill: var(--accent);
+  animation: thLikePop 0.4s cubic-bezier(0.17, 0.89, 0.32, 1.49);
+}
+@keyframes thLikePop {
+  0% { transform: scale(0.6); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+.th .like-count {
+  font-variant-numeric: tabular-nums;
+  min-width: 20px;
+}
+
+/* ── Share row ── */
+.th .social-footer {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 0 24px 3rem;
+}
+.th .share-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.th .share-row a,
+.th .share-row button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--th-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-dim);
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.th .share-row a:hover,
+.th .share-row button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.th .share-row svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+.th .social-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 4px;
+}
+.th .twitter-follow {
+  margin-left: auto;
+  border: none !important;
+  padding: 8px 0 !important;
+}
+
+/* ── Prev / next ── */
+.th .article-nav {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  border-top: 1px solid var(--border);
+}
+.th .article-nav a {
+  text-decoration: none;
+  display: block;
+  transition: color 0.2s, transform 0.2s;
+}
+.th .article-nav a:hover {
+  transform: translateX(-4px);
+}
+.th .article-nav a:hover .nav-dir,
+.th .article-nav a:hover .nav-title {
+  color: var(--accent);
+}
+.th .article-nav .next {
+  text-align: right;
+  margin-left: auto;
+}
+.th .article-nav .next:hover {
+  transform: translateX(4px);
+}
+.th .nav-dir {
+  font-family: var(--th-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  transition: color 0.2s;
+}
+.th .nav-title {
+  font-family: var(--th-serif);
+  font-size: 1.15rem;
+  color: var(--text);
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+
+/* ── Reading progress + scroll-to-top ── */
+.th .reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--accent);
+  z-index: 9999;
+  pointer-events: none;
+  will-change: width;
+}
+.th .scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, color 0.3s;
+  z-index: 99;
+  padding: 0;
+}
+.th .scroll-top:hover {
+  color: var(--accent);
+}
+.th .scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+  .th .blog-nav { padding: 16px 16px; }
+  .th .article-nav { flex-direction: column; gap: 24px; padding: 40px 16px 60px; }
+  .th .article-nav .next { text-align: left; margin-left: 0; }
+  .th .social-footer { padding: 0 1.2rem 2rem; }
+  .th .share-row { gap: 10px; }
+  .th .social-divider { display: none; }
+  .th .twitter-follow { margin-left: 0; }
+  .th .site-footer { padding: 32px 16px 8px; }
+}
+
+/* ── Print: drop all chrome ── */
+@media print {
+  .th .grain,
+  .th .blog-nav,
+  .th .site-footer,
+  .th .like-section,
+  .th .social-footer,
+  .th .article-nav,
+  .th .reading-progress,
+  .th .scroll-top {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body class="th">
+
+<div class="grain" aria-hidden="true"></div>
+<nav class="blog-nav"><a href="/blog/"><span class="arrow">&larr;</span> Thought Horizon</a></nav>
+
+<style>
+  :root {
+    --bg: #0a0a0c;
+    --surface: #111114;
+    --border: #1e1e24;
+    --text: #c8c5be;
+    --text-dim: #6b6860;
+    --text-bright: #eae7df;
+    --accent: #c49a6c;
+    --accent-dim: #8a6d4b;
+    --red: #8b3a3a;
+    --blue-dim: #3a4a6b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  ::selection { background: var(--accent); color: #fff; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- HERO --- */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(196,154,108,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(58,74,107,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Subtle orbital lines */
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translateX(-50%);
+    border: 1px solid rgba(196,154,108,0.04);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-series {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 2rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-bright);
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 span {
+    display: block;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 0.55em;
+    color: var(--accent);
+    margin-top: 0.3em;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    max-width: 560px;
+    margin-top: 1.5rem;
+  }
+
+  .hero-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    margin-top: 3rem;
+    letter-spacing: 0.05em;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* --- ARTICLE BODY --- */
+  .article {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 4rem 2rem 8rem;
+    animation: fadeIn 0.8s ease 0.5s both;
+  }
+
+  .article p {
+    margin-bottom: 1.5rem;
+  }
+
+  .article h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin: 4rem 0 1.5rem;
+    line-height: 1.25;
+  }
+
+  .article h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 3rem 0 1rem;
+  }
+
+  /* Lead paragraph */
+  .lead {
+    font-size: 1.25rem;
+    color: var(--text-bright);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  /* Pull quotes */
+  .pull {
+    border-left: 2px solid var(--accent-dim);
+    padding: 2rem 2.5rem 2rem 3rem;
+    margin: 2.5rem 0;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--text-bright);
+    line-height: 1.5;
+    position: relative;
+    background: var(--surface);
+    border-radius: 2px;
+  }
+  .pull::before {
+    content: "\201C";
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    color: var(--accent);
+    opacity: 0.15;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    line-height: 1;
+  }
+
+  .pull cite {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-style: normal;
+    color: var(--text-dim);
+    margin-top: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* Section breaks */
+  .break {
+    text-align: center;
+    margin: 3.5rem 0;
+    color: var(--accent-dim);
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+  }
+
+  /* Emphasis spans */
+  em { color: var(--text-bright); font-style: italic; }
+  strong { color: var(--text-bright); font-weight: 600; }
+
+  /* Timeline / data callout */
+  .callout {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    margin: 2.5rem 0;
+    border-radius: 3px;
+  }
+
+  .callout-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 1rem;
+  }
+
+  .callout p {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .callout p:last-child { margin-bottom: 0; }
+
+  /* Footer */
+  .article-footer {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text-dim);
+    letter-spacing: 0.03em;
+  }
+  .article-footer p + p { margin-top: 0.5rem; }
+  .article-footer .references { margin-top: 1rem; }
+
+  /* Inline link styling */
+  .article a:not(.social-footer a):not(.twitter-follow) { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(196,154,108,0.3); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+  .article a:not(.social-footer a):not(.twitter-follow):hover { text-decoration-color: var(--accent); }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .hero { padding: 5rem 2rem 3.5rem; min-height: 80vh; }
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 3.5rem); }
+    .hero-sub { max-width: 480px; }
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .hero { padding: 4rem 1.5rem 3rem; min-height: 70vh; }
+    .article { padding: 3rem 1.5rem 5rem; }
+    .pull { padding: 1.5rem 1.2rem 1.5rem 2rem; font-size: 1.15rem; }
+    .blog-nav { padding: 16px 20px; }
+    .article-nav { flex-direction: column; gap: 24px; padding: 40px 20px 60px; }
+    .article-nav .next { text-align: left; margin-left: 0; }
+    .social-footer { padding: 0 1.5rem 2rem; }
+    .share-row { gap: 10px; }
+    .social-divider { display: none; }
+    .twitter-follow { margin-left: 0; }
+  }
+
+  .blog-nav { position: absolute; top: 0; left: 0; right: 0; padding: 24px 32px; z-index: 100; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); background: rgba(10, 10, 12, 0.45); }
+  .blog-nav a { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); text-decoration: none; transition: color 0.2s, opacity 0.2s; }
+  .blog-nav a:hover { color: var(--accent); }
+  .blog-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; color: var(--accent); }
+  .blog-nav a .arrow { display: inline-block; transition: transform 0.2s ease; }
+  .blog-nav a:hover .arrow { transform: translateX(-3px); }
+  .article-nav { max-width: 720px; margin: 0 auto; padding: 60px 32px 80px; display: flex; justify-content: space-between; gap: 40px; border-top: 1px solid var(--border); }
+  .article-nav a { text-decoration: none; display: block; transition: color 0.2s, transform 0.2s; }
+  .article-nav a:hover { transform: translateX(-4px); }
+  .article-nav a:hover .nav-dir,
+  .article-nav a:hover .nav-title { color: var(--accent); }
+  .article-nav .next:hover { transform: translateX(4px); }
+  .article-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .article-nav a:focus-visible .nav-title { color: var(--accent); }
+  .nav-dir { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-dim); margin-bottom: 6px; transition: color 0.2s; }
+  .nav-title { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--text-bright); line-height: 1.3; transition: color 0.2s; }
+  .article-nav .next { text-align: right; margin-left: auto; }
+
+  .social-footer { max-width: 720px; margin: 2rem auto 0; padding: 0 2rem 2rem; }
+  .share-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .share-row a, .share-row button { display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-dim); background: none; border: 1px solid var(--border); padding: 8px 14px; border-radius: 2px; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
+  .share-row a:hover, .share-row button:hover { color: var(--accent); border-color: var(--accent); }
+  .share-row a:focus-visible, .share-row button:focus-visible { outline: none; color: var(--accent); border-color: var(--accent); }
+  .share-row svg { width: 14px; height: 14px; fill: currentColor; }
+  .social-divider { width: 1px; height: 20px; background: var(--border); margin: 0 4px; }
+  .twitter-follow { margin-left: auto; border: none !important; padding: 8px 0 !important; }
+
+  /* Dropcap */
+  .lead::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    float: left;
+    line-height: 0.8;
+    margin-right: 0.1em;
+    color: var(--accent);
+    font-weight: 900;
+  }
+
+  /* === WIDE SCREENS === */
+  @media (min-width: 1440px) {
+    body { font-size: 20px; }
+    .hero { padding: 8rem 2rem 5rem; }
+    .hero-inner { max-width: 860px; }
+    .article { max-width: 760px; }
+    .article-nav { max-width: 760px; }
+    .social-footer { max-width: 760px; }
+    .pull { font-size: 1.45rem; }
+    .callout p { font-size: 1rem; }
+    .lead { font-size: 1.3rem; }
+  }
+
+  /* === PRINT === */
+  @media print {
+    *, *::before, *::after {
+      background: #fff !important;
+      color: #1a1a1a !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    body {
+      font-size: 12pt;
+      line-height: 1.6;
+      color: #1a1a1a !important;
+    }
+
+    .blog-nav,
+    .article-nav,
+    .social-footer,
+    .reading-progress,
+    .scroll-top,
+    .hero-grid,
+    .grain {
+      display: none !important;
+    }
+
+    .hero::before,
+    .hero::after {
+      display: none !important;
+    }
+
+    .hero {
+      min-height: auto !important;
+      padding: 40px 0 20px !important;
+      position: relative;
+    }
+
+    body, .hero, .article, .container {
+      position: static !important;
+    }
+
+    h1, h2, h3, .hero h1, .hero h1 span,
+    .hero-series, .hero-sub, .hero-meta,
+    .lead, em, strong, .callout-label,
+    .article-footer, .article-footer p {
+      color: #1a1a1a !important;
+    }
+
+    .pull {
+      border-left: 2px solid #1a1a1a !important;
+      color: #1a1a1a !important;
+      font-style: italic;
+    }
+
+    .pull cite {
+      color: #333 !important;
+    }
+
+    a[href]::after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+      color: #555 !important;
+    }
+
+    .blog-nav a[href]::after,
+    .article-nav a[href]::after,
+    .share-row a[href]::after {
+      content: none;
+    }
+
+    .callout {
+      border: 1px solid #ccc !important;
+      background: #fff !important;
+    }
+
+    p, .pull, blockquote {
+      page-break-inside: avoid;
+    }
+
+    h2, h3 {
+      page-break-after: avoid;
+    }
+
+    .article {
+      max-width: 100%;
+      padding: 2rem 0;
+    }
+
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-series">The Gravity of Power · Part II</div>
+    <h1>
+      Age of Empires 2.0
+      <span>The Nation-State Was the Anomaly</span>
+    </h1>
+    <p class="hero-sub">
+      As of this month, 17 EU member states have activated national escape clauses in their fiscal rules to fund a unified rearmament program. Germany has unveiled a €377&nbsp;billion long-term military procurement blueprint — the largest in Europe since 1945 — with a stated goal of building "the strongest conventional army in Europe." Belgium is mailing military service invitations to every 17-year-old in the country. A political entity that already controls trade policy, monetary policy, and regulatory standards across 27&nbsp;countries is now building a shared military apparatus. The last time Europe had unified military structures spanning multiple nations and peoples was the imperial period that ended in 1918. A century later, it's reassembling what the nation-state settlement was designed to dismantle.
+    </p>
+    <div class="hero-meta">Misha · March 2026 · 16 min read</div>
+  </div>
+</header>
+
+<article class="article">
+
+  <p class="lead">
+    A year ago, the European Commission unveiled "ReArm Europe" — an €800 billion plan to build a unified defense industrial base, issue joint military debt, and centralize procurement across the continent. Italy and Spain objected to the name. It was too honest about what was happening. They renamed it "Readiness 2030." The substance didn't change. Twelve months later, the IISS Military Balance report confirms that Europe now accounts for over 21% of global defense spending, up from 17% in 2022. The plan isn't a proposal anymore. It's a fact on the ground.
+  </p>
+
+  <p>
+    And it raises a question nobody in Brussels wants to answer directly: what do you call a political entity that controls a common currency, a common legal order, common trade policy, common borders, and is now building common military infrastructure with joint debt instruments and coordinated procurement — while maintaining the polite fiction that its 27 member states are sovereign equals?
+  </p>
+
+  <p>
+    You call it what it is. You call it an empire. And Europe is not alone. Across the globe, power is re-aggregating into larger bodies — economic blocs, civilizational spheres, security architectures — that look less like alliances of sovereign nation-states and more like the empires that governed the world for four thousand years before the nation-state was invented.
+  </p>
+
+  <div class="break">· · ·</div>
+
+  <h2>The Hundred-Year Parenthesis</h2>
+
+  <p>
+    The idea of the nation-state was born in 1789. The French Revolution proposed something genuinely new: that political authority doesn't descend from God through a king, or radiate outward from a conquering dynasty — it rises upward from <em>the people</em>. A nation, defined by shared language, culture, and historical memory, has the right to govern itself within its own borders. One people, one state. The sovereign isn't the monarch. The sovereign is the nation.
+  </p>
+
+  <p>
+    It was a radical break from everything that came before. But as an idea, it spread slowly. The 19th century saw nationalist movements catch fire — German unification, Italian unification, Greek independence, the Latin American revolutions — but Europe was still dominated by multi-ethnic empires. Austria-Hungary, the Ottoman Empire, Tsarist Russia, the British Empire — none of them operated on the nation-state principle. Nationalism was a revolutionary force challenging empires, not the established order.
+  </p>
+
+  <p>
+    The real birth of the nation-state order was the wreckage of World War I. All four shattered simultaneously, and their remains were reorganized under Woodrow Wilson's doctrine of "self-determination." Poland, Czechoslovakia, Yugoslavia, Turkey — all born from imperial collapse, all organized around the proposition that one people equals one state. Meanwhile, the Ottoman territories of Iraq and Syria were carved into League of Nations mandates administered by Britain and France — nominally destined for eventual statehood but in practice handed from one empire to another.
+  </p>
+
+  <p>
+    A second wave followed after World War II: decolonization carved Africa, Asia, and the Middle East into nation-states, often with borders drawn by the departing empires that had nothing to do with actual national identities. Which is partly why so many of them struggled immediately.
+  </p>
+
+  <p>
+    Before all of this — before 1789, before the idea that a "people" could or should govern themselves — the organizing principle of human political life was empire. Rome governed the Mediterranean world for over five centuries. The Ottoman Empire lasted six. China's imperial system endured, through successive dynasties, for over two thousand years. The Mongol Empire, at its peak, administered the largest contiguous land mass ever governed by a single political entity. Persia, Austria-Hungary, the Mughals — the pattern is consistent. Large, multi-ethnic, hierarchically organized polities with a civilizational core that assimilates peripheral populations through a mix of force, law, trade, and cultural gravity.
+  </p>
+
+  <p>
+    The nation-state proposed a different organizing principle. And for about a hundred years — from the post-WWI settlement to today — it appeared to work.
+  </p>
+
+  <div class="callout">
+    <div class="callout-label">The Historical Ledger</div>
+    <p><strong>Imperial governance:</strong> ~4,000 years of continuous practice across multiple civilizations.</p>
+    <p><strong>Nation-state governance:</strong> ~107 years since the post-WWI settlement made it the global template. Generous reading: ~237 years since the French Revolution planted the seed.</p>
+    <p><strong>The question isn't why empires return. It's why we expected them not to.</strong></p>
+  </div>
+
+  <h2>The Theory vs. the Reality</h2>
+
+  <p>
+    Before we can understand why the nation-state is failing, we need to be precise about what one is — because the textbook definition and the historical reality have almost never matched.
+  </p>
+
+  <p>
+    The classic definition is straightforward: a nation-state is a sovereign political entity in which the boundaries of the <em>state</em> (the governing apparatus, the territory, the borders) align with the boundaries of the <em>nation</em> (a people who share a common identity — language, culture, ethnicity, historical memory). One people, one government, one territory. The state serves the nation; the nation legitimizes the state. Clean, elegant, intuitive.
+  </p>
+
+  <p>
+    The first problem is that nobody can agree on what a "nation" actually is. The usual candidates — shared language, shared ethnicity, shared culture, shared historical memory — each break down on contact with reality. Germans and Austrians share a language; they are not one nation. Serbs and Croats speak essentially the same language and fought a war over being different nations. The Swiss have four official languages and consider themselves one nation. If language doesn't define it, ethnicity fares even worse. Arabs share an ethnicity and a language from Morocco to Iraq — over twenty separate states, and pan-Arabism's attempt to unify them into one nation failed completely. Serbs, Croats, and Bosniaks share a common South Slavic linguistic heritage and are genetically near-identical — yet each insists on separate nationhood. As Ivo Banac documented in <em>The National Question in Yugoslavia</em>, their distinct national identities formed through centuries of divergent political experience under the Ottoman and Austro-Hungarian empires, producing different religious affiliations (Orthodox, Catholic, Muslim), different scripts, and different historical narratives that hardened into irreconcilable nationalisms. The raw material was the same; the imperial molds were different. In Rwanda, Hutus and Tutsis spoke the same language, lived in the same territory, and intermarried for centuries until Belgian colonizers hardened fluid social categories into fixed ethnic identities printed on ID cards in 1933. The ethnicity didn't pre-exist. The colonial state created it — and that manufactured distinction became the basis for genocide.
+  </p>
+
+  <p>
+    The honest academic answer, advanced by Ernest Gellner and Benedict Anderson, is that nations are largely <em>constructed</em> — "imagined communities" in Anderson's phrase. The nation doesn't pre-exist the state and then demand sovereignty. More often, political entrepreneurs <em>create</em> national identity to justify a state they already want to build. Massimo d'Azeglio captured it perfectly at Italian unification: "We have made Italy, now we must make Italians." The foundation the entire model rests on turns out to be an invention.
+  </p>
+
+  <p>
+    This is what most people picture when they hear "nation-state." It's what Woodrow Wilson promised when he carved up the Ottoman and Austro-Hungarian empires. It's the principle that underpins the United Nations, which is literally named after it. The entire post-1918 international order rests on the assumption that this model is both natural and achievable.
+  </p>
+
+  <p>
+    It almost never has been.
+  </p>
+
+  <p>
+    Start with the most obvious failures: the post-colonial states. Nigeria contains over 250 ethnic groups. Iraq has Sunni Arabs, Shia Arabs, Kurds, Turkmen, Assyrians. Syria, same story. These were never nation-states. They were multi-ethnic territories with borders drawn by departing British and French administrators — mini-empires with flags, governing multiple peoples within arbitrary lines. They functioned imperially from day one, with one group typically dominating the rest. Saddam's Sunni minority ruling a Shia majority. Assad's Alawite minority ruling a Sunni majority. That's not a nation governing itself. That's an empire wearing a nation-state costume.
+  </p>
+
+  <p>
+    But even the supposedly "clean" cases don't hold up. Britain is a union of four nations — English, Scottish, Welsh, Irish — not one. Spain contains Catalans, Basques, Galicians who actively dispute the premise that they belong to a single Spanish nation. France — the birthplace of the concept — spent centuries forcibly suppressing Breton, Occitan, Basque, and Alsatian identities to <em>manufacture</em> the unified French people that was supposed to already exist. The nation didn't create the state. The state created the nation, often violently.
+  </p>
+
+  <p>
+    The United States never even attempted the ethnic model. "We the People" was a civic proposition from the start — and the definition of who counted as "the People" kept expanding to include groups that were explicitly excluded at founding. America is a creedal nation, defined by a constitutional idea rather than a bloodline. Which makes it, paradoxically, closer to Rome's civic model of assimilation than to the European nation-state template.
+  </p>
+
+  <p>
+    And here's the darkest part: the states that <em>did</em> try to enforce the one-people-one-state ideal rigorously — to make reality match the theory — produced the worst atrocities of the 20th century. The Greek-Turkish population exchanges of the 1920s. The Partition of India in 1947, with between one and two million dead and 15 million displaced. Ethnic cleansing in the Balkans in the 1990s. The Holocaust itself, as the most extreme expression of the logic that a state must correspond to a racially defined people and therefore the "wrong" people must be removed. The nation-state ideal didn't prevent these horrors. Taken to its logical conclusion, it <em>demanded</em> them.
+  </p>
+
+  <div class="pull">
+    Most "nation-states" have been governing multi-ethnic populations imperially all along. The experiment didn't just fail recently. It was never running the way the manual described.
+  </div>
+
+  <h3>The Counter-Examples That Prove the Rule</h3>
+
+  <p>
+    Fairness demands acknowledging where the model has worked. Japan is probably the strongest case — an island nation with high ethnic homogeneity, a distinct language spoken nowhere else, deep cultural continuity, and borders that roughly match the population. South Korea is similar: linguistically and ethnically cohesive, with a strong national identity. Iceland, with 390,000 people on a North Atlantic island, is almost a laboratory case. Portugal has maintained one of the oldest stable borders in Europe since the 12th century, with language and state roughly aligned.
+  </p>
+
+  <p>
+    But look at what these cases have in common. They are mostly islands or small states with unusual geographic isolation. And even these aren't as clean as they appear — Japan spent centuries suppressing the Ainu and Ryukyuan identities to <em>manufacture</em> the homogeneity it's famous for. South Korea's borders exist because of a great power partition, not organic self-determination.
+  </p>
+
+  <p>
+    The most revealing counter-example is Poland, which fits the nation-state model almost perfectly today — and does so only because of the 20th century's worst violence. Pre-war Poland was deeply multi-ethnic: Jews, Ukrainians, Belarusians, Germans. The Holocaust killed the Jews. Border shifts expelled the Germans. The Soviets absorbed the eastern territories with their Ukrainian and Belarusian populations. Poland achieved the nation-state ideal through catastrophe, not design.
+  </p>
+
+  <p>
+    The pattern is consistent: the model works where geography provides natural isolation, or where historical violence already did the work of making the population match the borders. As a universal organizing principle for the entire world — which is what the post-WWI and post-WWII order tried to make it — it was always a fiction layered over a much messier reality.
+  </p>
+
+  <p>
+    So the nation-state, as the textbook defines it, is not what most countries on Earth actually are or have ever been. The label persists. The form persists. The reality underneath has always been something messier, more hierarchical, and more imperial than the theory admits. What's changing now is that the gap between the label and the reality is becoming impossible to ignore.
+  </p>
+
+  <div class="break">· · ·</div>
+
+  <h2>Why the Nation-State Is Failing</h2>
+
+  <p>
+    The nation-state is being squeezed from both ends. From above, the problems that matter most — climate change, AI governance, pandemic response, capital flows, supply chain security — operate at scales that no single nation-state can manage. From below, sub-national identities are reasserting themselves. Catalonia, Scotland, Kurdistan, Flanders — the centrifugal forces that the nation-state was supposed to resolve are back, and the container is cracking.
+  </p>
+
+  <p>
+    The result is a structural mismatch. The nation-state is simultaneously too small to solve the problems that threaten it and too large to satisfy the identities that sustain it. This isn't a temporary crisis. It's a fundamental design limitation.
+  </p>
+
+  <p>
+    And where design limitations exist, gravity fills the vacuum.
+  </p>
+
+  <div class="break">· · ·</div>
+
+  <h2>The New Empires: A Field Guide</h2>
+
+  <p>
+    Look at the major power blocs forming today and the imperial parallels are unmistakable.
+  </p>
+
+  <h3>The European Union — Rome Without Legions</h3>
+
+  <p>
+    Jan Zielonka, in <em>Europe as Empire</em>, argues that the enlarged EU resembles a neo-medieval empire: overlapping jurisdictions, fuzzy borders, divided sovereignty, and a polycentric system of governance that looks nothing like a Westphalian superstate. Robert Cooper, the former British diplomat, goes further — calling the EU "the most far reaching form of imperial expansion" in the post-modern world, one that conquers through exporting laws and regulatory standards rather than deploying armies. Both are describing the same thing from different angles. The EU operates a patron-client system that would be immediately recognizable to a Roman senator. A civilizational core — France and Germany — sets the norms. Peripheral states adopt those norms in exchange for market access, structural funds, and security. The accession process is an explicit assimilation program: candidates must internalize 80,000+ pages of the <em>acquis communautaire</em> before entry. Legal supremacy of EU law over national law mirrors Rome's imposition of <em>ius civile</em> across its provinces.
+  </p>
+
+  <p>
+    The appearance of sovereign equality is maintained. Small states technically hold veto power. But the cost of wielding it — diplomatic isolation, loss of influence, quiet reallocation of funding — makes the formal power largely decorative. Greece in 2015 demonstrated the dynamic with brutal clarity: a sovereign referendum rejected austerity, and the sovereign state accepted worse terms anyway, because the economic gravity of the system permitted no realistic alternative.
+  </p>
+
+  <div class="pull">
+    The formal blocking power exists partly because the system is confident it will rarely be used in ways that genuinely threaten the core's preferences. It's the appearance of equality that makes the hierarchy palatable — a very Roman solution to the problem of managing a diverse multi-ethnic political order.
+  </div>
+
+  <h3>China — The Empire That Never Ended</h3>
+
+  <p>
+    China is the simplest case because it never really stopped being an empire. The Communist Party is, structurally, a new dynasty governing the same geographic and civilizational space that imperial dynasties have governed for millennia. The Mandate of Heaven has been replaced by GDP growth as the source of legitimacy, but the pattern — a centralized bureaucratic elite administering a vast, diverse territory through a combination of Confucian cultural norms and top-down control — is continuous.
+  </p>
+
+  <p>
+    The Belt and Road Initiative is imperial infrastructure policy in the Roman tradition: roads, ports, and trade routes that restructure the economic landscape to flow toward the center. Client states accumulate debt and dependency. The parallel to Rome's road network — which existed as much for commercial assimilation as for military logistics — is almost too neat.
+  </p>
+
+  <h3>The United States — A Republic That Forgot to Stop Expanding</h3>
+
+  <p>
+    America's self-image as a republic masks an imperial reality that has been operative since at least 1945. Chalmers Johnson, in <em>The Sorrows of Empire</em>, catalogued what the Pentagon's own base structure reports confirmed: a globe-spanning network of 750+ military bases. A currency that functions as the world's reserve and therefore as an instrument of coercive diplomacy (sanctions are the modern siege). A cultural export machine — Hollywood, Silicon Valley, English as the global lingua franca — that Romanizes the world far more effectively than any legion could.
+  </p>
+
+  <p>
+    The U.S. doesn't call its sphere of influence an empire. Rome didn't call itself one either until Augustus made it official — and even then, the <em>language</em> of the Republic persisted for centuries. The Senate still met. Consuls were still elected. The forms of republican governance continued long after the substance had shifted to imperial control. The American analogy is unsettling precisely because it tracks so closely.
+  </p>
+
+  <h3>Russia — The Revanchist Empire</h3>
+
+  <p>
+    Russia under Putin doesn't merely aspire to great power status — it explicitly frames its project in imperial terms. The "Russian world" (<em>Russkiy mir</em>) doctrine asserts civilizational authority over territories and populations far beyond the Russian Federation's borders. The invasion of Ukraine is not a border dispute between nation-states. It's an imperial reconquest attempt — an effort to reassemble the sphere of influence that the Soviet empire (which itself inherited the Tsarist empire's geography) lost in 1991.
+  </p>
+
+  <h3>India — Civilizational Identity Over National Identity</h3>
+
+  <p>
+    India under Modi represents a different but related shift. The secular nation-state framework established at independence is being overlaid — some would say replaced — by a civilizational identity rooted in Hindutva. This is a move from nation-state logic (India as a civic polity) to imperial logic (India as a civilizational entity with deep historical continuity). The Mughal and British empires governed the same geographic and demographic space; the assertion is that <em>Bharat</em> predates and transcends all of them.
+  </p>
+
+  <div class="break">· · ·</div>
+
+  <h2>The Gravitational Thesis</h2>
+
+  <p>
+    In <em>The Gravity of Power</em>, I argued that power behaves like mass — it warps the space around it, pulling smaller bodies into orbit or absorbing them entirely. The nation-state system was an attempt to resist this gravity, to maintain discrete, equally sovereign units in stable equilibrium. But the forces acting on the system — technological integration, economic interdependence, information flows that ignore borders — have increased the mass of the major poles to the point where the equilibrium is unsustainable.
+  </p>
+
+  <p>
+    What we're witnessing is re-collapse. Not into the territorial empires of antiquity, but into what Zielonka calls neo-medieval structures and Cooper calls post-modern empires — gravitational systems defined by economic dependency, legal-regulatory alignment, cultural assimilation, and information dominance. The borders are fuzzier. The mechanisms are softer. But the structural dynamics — center and periphery, patron and client, core norms radiating outward — are the same dynamics that have governed human political organization for four millennia.
+  </p>
+
+  <p>
+    The 20th century's wars weren't the death of empire. They were the violent, chaotic transition between Empire 1.0 — territorial, military, explicit — and Empire 2.0 — economic, regulatory, implicit. The nation-state wasn't the destination. It was the interregnum.
+  </p>
+
+  <div class="pull">
+    We didn't escape the age of empires. We just renamed it.
+  </div>
+
+  <div class="break">· · ·</div>
+
+  <h2>What Comes Next</h2>
+
+  <p>
+    If the gravitational thesis holds — and the scholarship increasingly suggests it does, from Zielonka's neo-medieval model to Hedley Bull's early warning in <em>The Anarchical Society</em> that a "new medievalism" of overlapping authorities might supersede the Westphalian state — several implications follow.
+  </p>
+
+  <p>
+    First, the contest of the 21st century is not between nations. It's between empires — or more precisely, between competing gravitational systems. The question for any mid-sized country is not whether it will remain sovereign in the Westphalian sense, but <em>which orbit it will settle into</em>. This is already the de facto situation for most of the world. The formal language of sovereignty persists. The reality is alignment, dependency, and graduated autonomy.
+  </p>
+
+  <p>
+    Second, the empires that succeed will be the ones that master the Roman trick: making assimilation attractive rather than coerced. Rome didn't just conquer Gaul — it made Gauls <em>want</em> to be Roman. The EU's soft power, America's cultural gravity, China's infrastructure investment — these are all attempts to generate voluntary assimilation. The empire that has to rely primarily on force (Russia, take note) is the one most likely to fail.
+  </p>
+
+  <p>
+    Third, the internal contradictions of each imperial project will determine its longevity. Rome fell not because the barbarians were strong, but because the center could no longer generate enough gravity — economic, cultural, administrative — to hold the periphery. The question for each modern empire is the same: can the center hold?
+  </p>
+
+  <p>
+    The nation-state era gave us the comforting fiction that all sovereignties were equal, that borders were permanent, that self-determination was the natural endpoint of political development. That fiction is dissolving — not because someone disproved it, but because the gravitational forces it tried to deny have simply become too strong.
+  </p>
+
+  <p>
+    Welcome to the Age of Empires 2.0. The rules are older than you think.
+  </p>
+
+  <footer class="article-footer">
+    <p>Part of <em>The Gravity of Power</em> series · mishafyi.github.io</p>
+    <p>March 2026</p>
+    <p class="references"><strong>Selected references:</strong> Benedict Anderson, <em>Imagined Communities</em> (1983) · Ernest Gellner, <em>Nations and Nationalism</em> (1983) · Ivo Banac, <em>The National Question in Yugoslavia</em> (1984) · Hedley Bull, <em>The Anarchical Society</em> (1977) · Robert Cooper, <em>The Breaking of Nations</em> (2003) · Chalmers Johnson, <em>The Sorrows of Empire</em> (2004) · Jan Zielonka, <em>Europe as Empire</em> (2006) · IISS Military Balance 2026 · European Commission, Readiness 2030 White Paper (2025)</p>
+  </footer>
+
+  
+
+</article>
+
+
+<footer class="site-footer">
+  <span>Thought Horizon</span>
+  <a href="https://x.com/mishafyi" target="_blank" rel="noopener">@mishafyi</a>
+</footer>
+
+<div class="like-section">
+  <button class="like-btn" id="likeBtn" aria-label="Like this article">
+    <svg class="like-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <span class="like-count" id="likeCount">&mdash;</span>
+  </button>
+</div>
+
+<div class="social-footer">
+  <div class="share-row">
+    <a href="https://x.com/intent/tweet?url=https%3A%2F%2Fmishafyi.github.io%2Fblog%2Farticles%2Fage-of-empires-2.html&text=Age%20of%20Empires%202.0%3A%20The%20Nation-State%20Was%20the%20Anomaly" target="_blank" rel="noopener" aria-label="Share on X (Twitter)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Share
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmishafyi.github.io%2Fblog%2Farticles%2Fage-of-empires-2.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Share
+    </a>
+    <button aria-label="Copy link to clipboard" onclick="navigator.clipboard.writeText(window.location.href);this.querySelector('span').textContent='Copied';">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+      <span>Copy link</span>
+    </button>
+    <div class="social-divider"></div>
+    <a href="https://x.com/mishafyi" target="_blank" rel="noopener" class="twitter-follow">@mishafyi</a>
+  </div>
+</div>
+
+
+
+<nav class="article-nav">
+  <a href="/blog/articles/train-your-dragon.html"><div class="nav-dir">&larr; Previous</div><div class="nav-title">How to Train Your Claude Code</div></a>
+  <a href="/blog/articles/markets-under-fire.html" class="next"><div class="nav-dir">Next &rarr;</div><div class="nav-title">Markets Under Fire</div></a>
+</nav>
+
+<div class="reading-progress"></div>
+<button class="scroll-top" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function () {
+  var bar = document.querySelector('.reading-progress');
+  var btn = document.querySelector('.scroll-top');
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        var s = window.scrollY;
+        var d = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (d > 0 ? (s / d) * 100 : 0) + '%';
+        btn.classList.toggle('visible', s > 500);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+<script>
+(function () {
+  var nav = document.querySelector('.article-nav');
+  if (!nav) return;
+  var links = nav.querySelectorAll('a');
+  var prev = null, next = null;
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].classList.contains('next')) next = links[i].getAttribute('href');
+    else prev = links[i].getAttribute('href');
+  }
+  document.addEventListener('keydown', function (e) {
+    var tag = document.activeElement && document.activeElement.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    if (e.key === 'ArrowLeft' && prev) window.location.href = prev;
+    else if (e.key === 'ArrowRight' && next) window.location.href = next;
+    else if (e.key === 'h' || e.key === 'H') window.location.href = '/blog/';
+  });
+})();
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getDatabase, ref, get, runTransaction } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+  const app = initializeApp({
+    apiKey: "AIzaSyCMVArir7P4CfzytlyeBmpzVJUldxBanKA",
+    authDomain: "thought-horizon.firebaseapp.com",
+    databaseURL: "https://thought-horizon-default-rtdb.firebaseio.com",
+    projectId: "thought-horizon",
+    storageBucket: "thought-horizon.firebasestorage.app",
+    messagingSenderId: "672614008951",
+    appId: "1:672614008951:web:32f61162fa74a7b0fd9e72"
+  });
+
+  const db = getDatabase(app);
+  const articleId = "age-of-empires-2";
+  const likesRef = ref(db, "likes/" + articleId);
+  const storageKey = "liked_" + articleId;
+  const btn = document.getElementById("likeBtn");
+  const countEl = document.getElementById("likeCount");
+
+  if (localStorage.getItem(storageKey)) btn.classList.add("liked");
+
+  get(likesRef).then(function (snap) {
+    countEl.textContent = snap.exists() ? snap.val() : 0;
+  }).catch(function () { countEl.textContent = 0; });
+
+  btn.addEventListener("click", function () {
+    if (localStorage.getItem(storageKey)) return;
+    localStorage.setItem(storageKey, "1");
+    btn.classList.add("liked");
+    runTransaction(likesRef, function (current) { return (current || 0) + 1; })
+      .then(function (result) { countEl.textContent = result.snapshot.val(); });
+  });
+</script>
+
+</body>
+</html>

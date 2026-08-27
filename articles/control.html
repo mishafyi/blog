@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<title>Who Holds Control over AI?</title>
+<meta name="description" content="Anthropic told the Pentagon that Claude can do mass surveillance and autonomous weapons. The Pentagon said no company should have that veto power. What both sides actually mean.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Who Holds Control over AI?">
+<meta property="og:description" content="Anthropic vs. the Pentagon — what both sides said, and what they might actually mean.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mishafyi.github.io/blog/articles/control.html">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@mishafyi">
+<meta name="twitter:title" content="Who Holds Control over AI?">
+<meta name="twitter:description" content="Anthropic vs. the Pentagon — what both sides said, and what they might actually mean.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+<style>/* ============================================================
+   Shared "chrome" for every Thought Horizon article.
+   Loaded at the END of <body> so it deterministically wins over
+   any leftover chrome rules in an article's own <style>.
+   Colors come from each article's :root; fallbacks cover the
+   two palette dialects (--bg-card vs --surface, etc.).
+   Mono + serif resolve to whichever face the article loaded.
+   ============================================================ */
+
+:root {
+  --th-card: var(--bg-card, var(--surface, #141418));
+  --th-muted: var(--text-muted, var(--text-dim, #8a8880));
+  --th-glow: var(--accent-glow, rgba(127, 127, 127, 0.12));
+  --th-mono: "JetBrains Mono", ui-monospace, monospace;
+  --th-serif: "Instrument Serif", "Playfair Display", Georgia, serif;
+  --th-width: var(--content-width, 740px);
+}
+
+/* ── Grain overlay ── */
+.th .grain {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* ── Back link ── */
+.th .blog-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 32px;
+  z-index: 100;
+}
+.th .blog-nav a {
+  font-family: var(--th-mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--th-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.th .blog-nav a:hover {
+  color: var(--accent);
+}
+.th .blog-nav .arrow {
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform 0.2s ease;
+}
+.th .blog-nav a:hover .arrow {
+  transform: translateX(-3px);
+}
+
+/* ── Footer ── */
+.th .site-footer {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 48px 24px 8px;
+  font-family: var(--th-mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.th .site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Like button ── */
+.th .like-section {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 8px 24px 40px;
+  display: flex;
+  justify-content: center;
+}
+.th .like-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--th-card);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  color: var(--text-dim);
+  font-family: var(--th-mono);
+  font-size: 14px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.th .like-btn:hover {
+  border-color: var(--accent);
+  transform: scale(1.04);
+  box-shadow: 0 0 20px var(--th-glow);
+}
+.th .like-btn.liked {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.th .like-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: fill 0.3s, transform 0.3s;
+}
+.th .like-btn.liked .like-icon {
+  fill: var(--accent);
+  animation: thLikePop 0.4s cubic-bezier(0.17, 0.89, 0.32, 1.49);
+}
+@keyframes thLikePop {
+  0% { transform: scale(0.6); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+.th .like-count {
+  font-variant-numeric: tabular-nums;
+  min-width: 20px;
+}
+
+/* ── Share row ── */
+.th .social-footer {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 0 24px 3rem;
+}
+.th .share-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.th .share-row a,
+.th .share-row button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--th-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-dim);
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.th .share-row a:hover,
+.th .share-row button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.th .share-row svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+.th .social-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 4px;
+}
+.th .twitter-follow {
+  margin-left: auto;
+  border: none !important;
+  padding: 8px 0 !important;
+}
+
+/* ── Prev / next ── */
+.th .article-nav {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  border-top: 1px solid var(--border);
+}
+.th .article-nav a {
+  text-decoration: none;
+  display: block;
+  transition: color 0.2s, transform 0.2s;
+}
+.th .article-nav a:hover {
+  transform: translateX(-4px);
+}
+.th .article-nav a:hover .nav-dir,
+.th .article-nav a:hover .nav-title {
+  color: var(--accent);
+}
+.th .article-nav .next {
+  text-align: right;
+  margin-left: auto;
+}
+.th .article-nav .next:hover {
+  transform: translateX(4px);
+}
+.th .nav-dir {
+  font-family: var(--th-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  transition: color 0.2s;
+}
+.th .nav-title {
+  font-family: var(--th-serif);
+  font-size: 1.15rem;
+  color: var(--text);
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+
+/* ── Reading progress + scroll-to-top ── */
+.th .reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--accent);
+  z-index: 9999;
+  pointer-events: none;
+  will-change: width;
+}
+.th .scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, color 0.3s;
+  z-index: 99;
+  padding: 0;
+}
+.th .scroll-top:hover {
+  color: var(--accent);
+}
+.th .scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+  .th .blog-nav { padding: 16px 16px; }
+  .th .article-nav { flex-direction: column; gap: 24px; padding: 40px 16px 60px; }
+  .th .article-nav .next { text-align: left; margin-left: 0; }
+  .th .social-footer { padding: 0 1.2rem 2rem; }
+  .th .share-row { gap: 10px; }
+  .th .social-divider { display: none; }
+  .th .twitter-follow { margin-left: 0; }
+  .th .site-footer { padding: 32px 16px 8px; }
+}
+
+/* ── Print: drop all chrome ── */
+@media print {
+  .th .grain,
+  .th .blog-nav,
+  .th .site-footer,
+  .th .like-section,
+  .th .social-footer,
+  .th .article-nav,
+  .th .reading-progress,
+  .th .scroll-top {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body class="th">
+
+<div class="grain" aria-hidden="true"></div>
+<nav class="blog-nav"><a href="/blog/"><span class="arrow">&larr;</span> Thought Horizon</a></nav>
+
+<style>
+  :root {
+    --bg: #fafaf8;
+    --bg-card: #f5f4f1;
+    --text: #1a1a1a;
+    --text-body: #2a2a28;
+    --text-dim: #555550;
+    --text-muted: #8a8880;
+    --accent: #9a6b1e;
+    --accent-dim: #b08a3a;
+    --accent-glow: rgba(154, 107, 30, 0.08);
+    --red: #a53d2e;
+    --blue: #2e6a9a;
+    --border: #dddcd8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  ::selection { background: var(--accent); color: #fff; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .grain {
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 1000;
+  }
+
+  a { color: inherit; }
+
+  .u { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 32px 80px; }
+
+  /* ===== HEADER ROW: Portrait | Title | Portrait ===== */
+  .header-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    animation: fadeUp 0.7s ease both;
+    align-items: center;
+    gap: 0;
+    padding: 56px 0 40px;
+  }
+
+  .actor-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .actor-orb {
+    width: 96px; height: 96px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center top;
+    position: relative;
+    overflow: hidden;
+  }
+  .actor-orb::after {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 50%;
+  }
+  .actor-orb.corporate {
+    background-image: url("images/anthropic.jpg");
+    background-color: rgba(154,107,30,0.1);
+    border: 2.5px solid var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow), 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .actor-orb.state {
+    background-image: url("images/pentagon.jpg");
+    background-color: rgba(46,106,154,0.1);
+    border: 2.5px solid var(--blue);
+    box-shadow: 0 0 20px rgba(46,106,154,0.08), 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .actor-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    text-align: center;
+  }
+  .actor-name.corporate { color: var(--accent); }
+  .actor-name.state { color: var(--blue); }
+
+  .actor-role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    margin-top: -4px;
+  }
+
+  /* Title in center */
+  .hero-center {
+    text-align: center;
+    padding: 0 24px;
+  }
+  .hero-center h1 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .hero-center h1 em { color: var(--accent); font-style: italic; }
+  .hero-meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--text-muted); letter-spacing: 0.05em; margin-top: 10px; }
+
+  /* ===== FLOW GRID: aligned rows ===== */
+  .flow-grid {
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    gap: 0 16px;
+    margin-top: 8px;
+    animation: fadeUp 0.7s ease 0.3s both;
+  }
+
+  /* Shared flow box styles */
+  .flow-box {
+    padding: 24px 26px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+  }
+  .flow-box.means {
+    border-color: rgba(154,107,30,0.35);
+    background: linear-gradient(135deg, #f7f4ee, var(--bg-card));
+  }
+
+  .flow-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .flow-label.says { color: var(--text-muted); }
+  .flow-label.means { color: var(--accent); }
+
+  .flow-label a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: opacity 0.15s ease;
+  }
+  .flow-label a:hover { opacity: 0.6; }
+
+  .flow-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    color: var(--text-body);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  /* "Said" row */
+  .said-left { grid-column: 1; align-self: stretch; display: flex; }
+  .said-right { grid-column: 3; align-self: stretch; display: flex; }
+  .said-left .flow-box, .said-right .flow-box { flex: 1; }
+
+  /* Center spacer — spans all rows */
+  .center-spacer {
+    grid-column: 2;
+    grid-row: 1 / 6;
+  }
+
+  /* Arrow rows */
+  .arrow-left, .arrow-right {
+    display: flex;
+    justify-content: center;
+    height: 32px;
+    position: relative;
+  }
+  .arrow-left { grid-column: 1; }
+  .arrow-right { grid-column: 3; }
+  .arrow-left::before, .arrow-right::before {
+    content: '';
+    position: absolute; left: 50%; top: 0;
+    width: 1px; height: 100%;
+    background: var(--border);
+  }
+  .arrow-left::after, .arrow-right::after {
+    content: '';
+    position: absolute; bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--accent-dim);
+  }
+
+  /* "Means" label row */
+  .means-label-left, .means-label-right {
+    padding: 24px 26px 0;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid rgba(154,107,30,0.35);
+    border-bottom: none;
+    background: linear-gradient(135deg, #f7f4ee, var(--bg-card));
+  }
+  .means-label-left { grid-column: 1; }
+  .means-label-right { grid-column: 3; }
+
+  /* Option rows inside means */
+  .opt-left, .opt-right {
+    padding: 0 26px;
+    border-left: 1px solid rgba(154,107,30,0.35);
+    border-right: 1px solid rgba(154,107,30,0.35);
+    background: linear-gradient(135deg, #f7f4ee, var(--bg-card));
+    display: flex;
+  }
+  .opt-left { grid-column: 1; }
+  .opt-right { grid-column: 3; }
+  .opt-left .option, .opt-right .option {
+    flex: 1;
+    padding: 12px 0;
+  }
+
+  /* Last option row gets bottom border & rounding */
+  .opt-last-left, .opt-last-right {
+    border-bottom: 1px solid rgba(154,107,30,0.35);
+    border-radius: 0 0 10px 10px;
+    padding-bottom: 24px;
+  }
+
+  /* Divider between option rows */
+  .opt-left.opt-divider, .opt-right.opt-divider {
+    border-top: 1px dashed var(--border);
+  }
+
+  .opt-left .option-text, .opt-right .option-text {
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.65;
+  }
+
+  /* Options styling */
+  .option {
+    display: block;
+    padding: 8px 0;
+  }
+  .option + .option {
+    margin-top: 4px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border);
+  }
+  .option-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-bottom: 2px;
+  }
+  .option-text {
+    display: block;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .option.harsh .option-num { color: var(--red); }
+  .option.harsh .option-text { color: var(--red); }
+  .option.principled .option-num { color: var(--blue); }
+  .option.principled .option-text { color: var(--blue); }
+
+  /* Inline link styling */
+  .container a:not(.flow-label a) { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(154,107,30,0.3); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+  .container a:not(.flow-label a):hover { text-decoration-color: var(--accent); }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .container { padding: 0 24px 60px; }
+    .hero-center { max-width: 380px; margin: 0 auto; }
+    .hero-center h1 { font-size: clamp(28px, 3.8vw, 40px); }
+    .flow-grid { gap: 0 12px; }
+    .flow-text, .option-text { font-size: 17px; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 760px) {
+    .container { padding: 0 16px 60px; }
+    .header-row {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .hero-center { order: -1; }
+    .flow-grid {
+      grid-template-columns: 1fr;
+      gap: 16px 0;
+    }
+    .center-spacer { display: none; }
+    .means-label-left, .means-label-right,
+    .opt-left, .opt-right { grid-column: 1; }
+    .flow-text, .option-text { font-size: 16px; }
+    .blog-nav { padding: 16px 16px; }
+    .article-nav { flex-direction: column; gap: 24px; padding: 40px 16px 60px; }
+    .article-nav .next { text-align: left; margin-left: 0; }
+    .social-footer { padding: 0 1.5rem 2rem; }
+    .share-row { gap: 10px; }
+    .social-divider { display: none; }
+    .twitter-follow { margin-left: 0; }
+  }
+
+  .blog-nav { position: absolute; top: 0; left: 0; right: 0; padding: 24px 32px; z-index: 100; background: rgba(250, 250, 248, 0.85); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06); }
+  .blog-nav a { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); text-decoration: none; transition: color 0.2s, opacity 0.2s; }
+  .blog-nav a:hover { color: var(--accent); }
+  .blog-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; color: var(--accent); }
+  .blog-nav a .arrow { display: inline-block; transition: transform 0.2s ease; }
+  .blog-nav a:hover .arrow { transform: translateX(-3px); }
+  .article-nav { max-width: 1000px; margin: 0 auto; padding: 60px 32px 80px; display: flex; justify-content: space-between; gap: 40px; border-top: 1px solid var(--border); }
+  .article-nav a { text-decoration: none; display: block; transition: color 0.2s, transform 0.2s; }
+  .article-nav a:hover { transform: translateX(-4px); }
+  .article-nav a:hover .nav-dir,
+  .article-nav a:hover .nav-title { color: var(--accent); }
+  .article-nav .next:hover { transform: translateX(4px); }
+  .article-nav a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .article-nav a:focus-visible .nav-title { color: var(--accent); }
+  .nav-dir { font-family: 'JetBrains Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-bottom: 6px; transition: color 0.2s; }
+  .nav-title { font-family: 'Instrument Serif', serif; font-size: 18px; color: var(--text); line-height: 1.3; transition: color 0.2s; }
+  .article-nav .next { text-align: right; margin-left: auto; }
+
+  .social-footer { max-width: 1000px; margin: 2rem auto 0; padding: 0 2rem 2rem; }
+  .share-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .share-row a, .share-row button { display: inline-flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: var(--text-dim); background: none; border: 1px solid var(--border); padding: 8px 14px; border-radius: 2px; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
+  .share-row a:hover, .share-row button:hover { color: var(--accent); border-color: var(--accent); }
+  .share-row a:focus-visible, .share-row button:focus-visible { outline: none; color: var(--accent); border-color: var(--accent); }
+  .share-row svg { width: 14px; height: 14px; fill: currentColor; }
+  .social-divider { width: 1px; height: 20px; background: var(--border); margin: 0 4px; }
+  .twitter-follow { margin-left: auto; border: none !important; padding: 8px 0 !important; }
+
+  /* === WIDE SCREENS === */
+  @media (min-width: 1440px) {
+    body { font-size: 19px; }
+    .container { max-width: 1060px; }
+    .header-row { padding: 64px 0 48px; }
+    .article-nav { max-width: 1060px; }
+    .social-footer { max-width: 1060px; }
+    .flow-text { font-size: 19px; }
+    .option-text { font-size: 18px; }
+  }
+
+  /* === PRINT === */
+  @media print {
+    *, *::before, *::after {
+      background: #fff !important;
+      color: #1a1a1a !important;
+      box-shadow: none !important;
+      text-shadow: none !important;
+    }
+
+    body {
+      font-size: 12pt;
+      line-height: 1.6;
+      color: #1a1a1a !important;
+    }
+
+    .blog-nav,
+    .article-nav,
+    .social-footer,
+    .reading-progress,
+    .scroll-top,
+    .hero-grid,
+    .grain {
+      display: none !important;
+    }
+
+    .hero::before,
+    .hero::after {
+      display: none !important;
+    }
+
+    body, .container {
+      position: static !important;
+    }
+
+    h1, h2, h3, .hero-center h1, .hero-center h1 em,
+    .flow-text, .option-text, .option-num,
+    .flow-label, .actor-name, .actor-role {
+      color: #1a1a1a !important;
+    }
+
+    .option.harsh .option-num,
+    .option.harsh .option-text {
+      color: #1a1a1a !important;
+    }
+
+    .option.principled .option-num,
+    .option.principled .option-text {
+      color: #1a1a1a !important;
+    }
+
+    .flow-box, .flow-box.means {
+      border: 1px solid #ccc !important;
+      background: #fff !important;
+    }
+
+    .means-label-left, .means-label-right {
+      border-color: #ccc !important;
+      background: #fff !important;
+    }
+
+    .opt-left, .opt-right {
+      border-color: #ccc !important;
+      background: #fff !important;
+    }
+
+    .actor-orb {
+      border-color: #999 !important;
+      box-shadow: none !important;
+    }
+
+    a[href]::after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+      color: #555 !important;
+    }
+
+    .blog-nav a[href]::after,
+    .article-nav a[href]::after,
+    .share-row a[href]::after,
+    .flow-label a[href]::after {
+      content: none;
+    }
+
+    .arrow-left::before, .arrow-right::before {
+      background: #ccc !important;
+    }
+
+    .arrow-left::after, .arrow-right::after {
+      border-top-color: #999 !important;
+    }
+
+    p, blockquote {
+      page-break-inside: avoid;
+    }
+
+    h2, h3 {
+      page-break-after: avoid;
+    }
+
+    .container {
+      max-width: 100%;
+      padding: 0 16px 40px;
+    }
+
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<div class="container">
+
+  <!-- HEADER: Portrait | Title | Portrait -->
+  <div class="header-row">
+    <div class="actor-header">
+      <div class="actor-orb corporate" role="img" aria-label="Anthropic logo"></div>
+      <span class="actor-name corporate">Anthropic</span>
+      <span class="actor-role">Private Company</span>
+    </div>
+
+    <div class="hero-center">
+      <h1>Who Holds<br><em>Control over AI?</em></h1>
+      <div class="hero-meta">February 2026 · 1 min read</div>
+    </div>
+
+    <div class="actor-header">
+      <div class="actor-orb state" role="img" aria-label="Pentagon building"></div>
+      <span class="actor-name state">Pentagon</span>
+      <span class="actor-role">U.S. Military</span>
+    </div>
+  </div>
+
+  <!-- FLOW GRID -->
+  <div class="flow-grid">
+
+    <div class="said-left">
+      <div class="flow-box">
+        <div class="flow-label says"><a href="https://www.anthropic.com/news/statement-department-of-war" target="_blank" rel="noopener">What they said</a></div>
+        <p class="flow-text">Claude can do <b>mass surveillance</b> and <b>autonomous weapons</b> — the U.S. military should <i>agree not to use</i> this power.</p>
+      </div>
+    </div>
+
+    <div class="center-spacer"></div>
+
+    <div class="said-right">
+      <div class="flow-box">
+        <div class="flow-label says"><a href="https://x.com/SecWar/status/2027507717469049070" target="_blank" rel="noopener">What they said</a></div>
+        <p class="flow-text"><i>No company</i> should have power to decide what the U.S. military <b>can and cannot do</b>.</p>
+      </div>
+    </div>
+
+    <div class="arrow-left"></div>
+    <div class="arrow-right"></div>
+
+    <div class="means-label-left">
+      <div class="flow-label means">What they mean</div>
+    </div>
+    <div class="means-label-right">
+      <div class="flow-label means">What they mean</div>
+    </div>
+
+    <div class="opt-left">
+      <div class="option harsh">
+        <span class="option-num">Option 1</span>
+        <span class="option-text"><b>AGI</b> is super close. We want to <i>keep</i> the power to <b>mass-surveil Americans</b> and <b>control autonomous weapons</b>.</span>
+      </div>
+    </div>
+    <div class="opt-right">
+      <div class="option harsh">
+        <span class="option-num">Option 1</span>
+        <span class="option-text">We're ok with <b>mass surveillance</b> and <b>autonomous weapons without humans in the loop</b> — and the moment a foreign actor touches internal politics, that's enough pretext to <span class="u">deploy</span>.</span>
+      </div>
+    </div>
+
+    <div class="opt-left opt-divider opt-last-left">
+      <div class="option principled">
+        <span class="option-num">Option 2</span>
+        <span class="option-text">The <b>balance of power</b> matters — giving the executive branch <span class="u">unchecked access</span> to mass surveillance and autonomous weapons tips it too far.</span>
+      </div>
+    </div>
+    <div class="opt-right opt-divider opt-last-right">
+      <div class="option principled">
+        <span class="option-num">Option 2</span>
+        <span class="option-text">In a war scenario, depending on a private company is a <b>liability</b>. We <span class="u">don't trust Anthropic</span>. We need <b>full access</b> — the same as Anthropic itself. That means Anthropic <i>loses independence</i> and integrates with DoD.</span>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<footer class="site-footer">
+  <span>Thought Horizon</span>
+  <a href="https://x.com/mishafyi" target="_blank" rel="noopener">@mishafyi</a>
+</footer>
+
+<div class="like-section">
+  <button class="like-btn" id="likeBtn" aria-label="Like this article">
+    <svg class="like-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <span class="like-count" id="likeCount">&mdash;</span>
+  </button>
+</div>
+
+<div class="social-footer">
+  <div class="share-row">
+    <a href="https://x.com/intent/tweet?url=https%3A%2F%2Fmishafyi.github.io%2Fblog%2Farticles%2Fcontrol.html&text=Who%20Holds%20Control%20over%20AI%3F" target="_blank" rel="noopener" aria-label="Share on X (Twitter)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Share
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmishafyi.github.io%2Fblog%2Farticles%2Fcontrol.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Share
+    </a>
+    <button aria-label="Copy link to clipboard" onclick="navigator.clipboard.writeText(window.location.href);this.querySelector('span').textContent='Copied';">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+      <span>Copy link</span>
+    </button>
+    <div class="social-divider"></div>
+    <a href="https://x.com/mishafyi" target="_blank" rel="noopener" class="twitter-follow">@mishafyi</a>
+  </div>
+</div>
+
+
+
+<nav class="article-nav">
+  <a href="/blog/articles/drone-delivery.html"><div class="nav-dir">&larr; Previous</div><div class="nav-title">Death From Above</div></a>
+  <a href="/blog/articles/gravity.html" class="next"><div class="nav-dir">Next &rarr;</div><div class="nav-title">The Gravity of Power</div></a>
+</nav>
+
+<div class="reading-progress"></div>
+<button class="scroll-top" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function () {
+  var bar = document.querySelector('.reading-progress');
+  var btn = document.querySelector('.scroll-top');
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        var s = window.scrollY;
+        var d = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (d > 0 ? (s / d) * 100 : 0) + '%';
+        btn.classList.toggle('visible', s > 500);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+<script>
+(function () {
+  var nav = document.querySelector('.article-nav');
+  if (!nav) return;
+  var links = nav.querySelectorAll('a');
+  var prev = null, next = null;
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].classList.contains('next')) next = links[i].getAttribute('href');
+    else prev = links[i].getAttribute('href');
+  }
+  document.addEventListener('keydown', function (e) {
+    var tag = document.activeElement && document.activeElement.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    if (e.key === 'ArrowLeft' && prev) window.location.href = prev;
+    else if (e.key === 'ArrowRight' && next) window.location.href = next;
+    else if (e.key === 'h' || e.key === 'H') window.location.href = '/blog/';
+  });
+})();
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getDatabase, ref, get, runTransaction } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+  const app = initializeApp({
+    apiKey: "AIzaSyCMVArir7P4CfzytlyeBmpzVJUldxBanKA",
+    authDomain: "thought-horizon.firebaseapp.com",
+    databaseURL: "https://thought-horizon-default-rtdb.firebaseio.com",
+    projectId: "thought-horizon",
+    storageBucket: "thought-horizon.firebasestorage.app",
+    messagingSenderId: "672614008951",
+    appId: "1:672614008951:web:32f61162fa74a7b0fd9e72"
+  });
+
+  const db = getDatabase(app);
+  const articleId = "control";
+  const likesRef = ref(db, "likes/" + articleId);
+  const storageKey = "liked_" + articleId;
+  const btn = document.getElementById("likeBtn");
+  const countEl = document.getElementById("likeCount");
+
+  if (localStorage.getItem(storageKey)) btn.classList.add("liked");
+
+  get(likesRef).then(function (snap) {
+    countEl.textContent = snap.exists() ? snap.val() : 0;
+  }).catch(function () { countEl.textContent = 0; });
+
+  btn.addEventListener("click", function () {
+    if (localStorage.getItem(storageKey)) return;
+    localStorage.setItem(storageKey, "1");
+    btn.classList.add("liked");
+    runTransaction(likesRef, function (current) { return (current || 0) + 1; })
+      .then(function (result) { countEl.textContent = result.snapshot.val(); });
+  });
+</script>
+
+</body>
+</html>
