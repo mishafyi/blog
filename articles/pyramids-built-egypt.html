@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<title>The Pyramids Built Egypt — Thought Horizon</title>
+<meta name="description" content="The tomb was the excuse. The state that had to exist in order to build it was the product. The AI buildout is stacking stone again.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Pyramids Built Egypt">
+<meta property="og:description" content="The tomb was the excuse. The state that had to exist to build it was the product. We are stacking stone again.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mishafyi.github.io/blog/articles/pyramids-built-egypt.html">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@mishafyi">
+<meta name="twitter:title" content="The Pyramids Built Egypt">
+<meta name="twitter:description" content="The tomb was the excuse. The state that had to exist to build it was the product. We are stacking stone again.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+<style>/* ============================================================
+   Shared "chrome" for every Thought Horizon article.
+   Loaded at the END of <body> so it deterministically wins over
+   any leftover chrome rules in an article's own <style>.
+   Colors come from each article's :root; fallbacks cover the
+   two palette dialects (--bg-card vs --surface, etc.).
+   Mono + serif resolve to whichever face the article loaded.
+   ============================================================ */
+
+:root {
+  --th-card: var(--bg-card, var(--surface, #141418));
+  --th-muted: var(--text-muted, var(--text-dim, #8a8880));
+  --th-glow: var(--accent-glow, rgba(127, 127, 127, 0.12));
+  --th-mono: "JetBrains Mono", ui-monospace, monospace;
+  --th-serif: "Instrument Serif", "Playfair Display", Georgia, serif;
+  --th-width: var(--content-width, 740px);
+}
+
+/* ── Grain overlay ── */
+.th .grain {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* ── Back link ── */
+.th .blog-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 32px;
+  z-index: 100;
+}
+.th .blog-nav a {
+  font-family: var(--th-mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--th-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.th .blog-nav a:hover {
+  color: var(--accent);
+}
+.th .blog-nav .arrow {
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform 0.2s ease;
+}
+.th .blog-nav a:hover .arrow {
+  transform: translateX(-3px);
+}
+
+/* ── Footer ── */
+.th .site-footer {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 48px 24px 8px;
+  font-family: var(--th-mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.th .site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Like button ── */
+.th .like-section {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 8px 24px 40px;
+  display: flex;
+  justify-content: center;
+}
+.th .like-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--th-card);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  color: var(--text-dim);
+  font-family: var(--th-mono);
+  font-size: 14px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.th .like-btn:hover {
+  border-color: var(--accent);
+  transform: scale(1.04);
+  box-shadow: 0 0 20px var(--th-glow);
+}
+.th .like-btn.liked {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.th .like-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: fill 0.3s, transform 0.3s;
+}
+.th .like-btn.liked .like-icon {
+  fill: var(--accent);
+  animation: thLikePop 0.4s cubic-bezier(0.17, 0.89, 0.32, 1.49);
+}
+@keyframes thLikePop {
+  0% { transform: scale(0.6); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+.th .like-count {
+  font-variant-numeric: tabular-nums;
+  min-width: 20px;
+}
+
+/* ── Share row ── */
+.th .social-footer {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 0 24px 3rem;
+}
+.th .share-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.th .share-row a,
+.th .share-row button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--th-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-dim);
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.th .share-row a:hover,
+.th .share-row button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.th .share-row svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+.th .social-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 4px;
+}
+.th .twitter-follow {
+  margin-left: auto;
+  border: none !important;
+  padding: 8px 0 !important;
+}
+
+/* ── Prev / next ── */
+.th .article-nav {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  border-top: 1px solid var(--border);
+}
+.th .article-nav a {
+  text-decoration: none;
+  display: block;
+  transition: color 0.2s, transform 0.2s;
+}
+.th .article-nav a:hover {
+  transform: translateX(-4px);
+}
+.th .article-nav a:hover .nav-dir,
+.th .article-nav a:hover .nav-title {
+  color: var(--accent);
+}
+.th .article-nav .next {
+  text-align: right;
+  margin-left: auto;
+}
+.th .article-nav .next:hover {
+  transform: translateX(4px);
+}
+.th .nav-dir {
+  font-family: var(--th-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  transition: color 0.2s;
+}
+.th .nav-title {
+  font-family: var(--th-serif);
+  font-size: 1.15rem;
+  color: var(--text);
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+
+/* ── Reading progress + scroll-to-top ── */
+.th .reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--accent);
+  z-index: 9999;
+  pointer-events: none;
+  will-change: width;
+}
+.th .scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, color 0.3s;
+  z-index: 99;
+  padding: 0;
+}
+.th .scroll-top:hover {
+  color: var(--accent);
+}
+.th .scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+  .th .blog-nav { padding: 16px 16px; }
+  .th .article-nav { flex-direction: column; gap: 24px; padding: 40px 16px 60px; }
+  .th .article-nav .next { text-align: left; margin-left: 0; }
+  .th .social-footer { padding: 0 1.2rem 2rem; }
+  .th .share-row { gap: 10px; }
+  .th .social-divider { display: none; }
+  .th .twitter-follow { margin-left: 0; }
+  .th .site-footer { padding: 32px 16px 8px; }
+}
+
+/* ── Print: drop all chrome ── */
+@media print {
+  .th .grain,
+  .th .blog-nav,
+  .th .site-footer,
+  .th .like-section,
+  .th .social-footer,
+  .th .article-nav,
+  .th .reading-progress,
+  .th .scroll-top {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body class="th">
+
+<div class="grain" aria-hidden="true"></div>
+<nav class="blog-nav"><a href="/blog/"><span class="arrow">&larr;</span> Thought Horizon</a></nav>
+
+<style>
+  :root {
+    --bg: #0e0d0b;
+    --surface: #17150f;
+    --border: #2b271d;
+    --text: #e6e0d2;
+    --text-dim: #9a917d;
+    --text-bright: #f3ead6;
+    --accent: #d9a441;
+    --accent-dim: #8f6f33;
+    --content-width: 700px;
+  }
+  * { box-sizing: border-box; }
+  ::selection { background: var(--accent); color: var(--bg); }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .pyr { max-width: var(--content-width); margin: 0 auto; padding: 120px 20px 72px; }
+  .pyr .kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent);
+  }
+  .pyr h1 {
+    font-family: 'Playfair Display', serif; font-weight: 900;
+    font-size: clamp(2.3rem, 7vw, 3.6rem); line-height: 1.06;
+    color: var(--text-bright); margin: 16px 0 20px;
+  }
+  .pyr .dek { font-size: 22px; font-style: italic; font-weight: 300; color: var(--text-dim); line-height: 1.45; margin: 0 0 28px; }
+  .pyr .hero-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim);
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    padding: 13px 0; margin-bottom: 44px;
+  }
+  .pyr h2 {
+    font-family: 'Playfair Display', serif; font-weight: 700;
+    font-size: 28px; line-height: 1.22; color: var(--text-bright); margin: 60px 0 10px;
+  }
+  .pyr h2 .course {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); font-weight: 500; margin-bottom: 10px;
+  }
+  .pyr p { margin: 0 0 22px; }
+  .pyr .pull {
+    border-left: 3px solid var(--accent);
+    padding: 4px 0 4px 22px; margin: 38px 0;
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 25px; line-height: 1.35; color: var(--text-bright);
+  }
+  .pyr .table-wrap { overflow-x: auto; margin: 32px 0; }
+  .pyr table {
+    width: 100%; border-collapse: collapse;
+    font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; line-height: 1.45;
+    background: var(--surface);
+  }
+  .pyr th, .pyr td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .pyr th { font-family: 'JetBrains Mono', monospace; color: var(--accent); font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+  .pyr td:first-child { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); width: 24%; }
+  .pyr .sources {
+    margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border);
+    font-size: 15px; font-style: italic; color: var(--text-dim); line-height: 1.6;
+  }
+  .pyr .sources h3 { font-family: 'JetBrains Mono', monospace; font-style: normal; font-weight: 500; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin: 0 0 12px; }
+  .pyr .sources a { color: var(--text); }
+  @media (max-width: 600px) {
+    body { font-size: 18px; }
+    .pyr { padding-top: 96px; }
+    .pyr .dek { font-size: 19px; }
+    .pyr .pull { font-size: 21px; }
+    .pyr table { font-size: 15px; }
+    .pyr th, .pyr td { padding: 10px 10px; }
+  }
+</style>
+
+<article class="pyr">
+
+  <div class="kicker">Technology &amp; Power</div>
+  <h1>The Pyramids Built Egypt</h1>
+  <p class="dek">The tomb was the excuse. The state that had to exist in order to build it was the product. We are stacking stone again.</p>
+  <div class="hero-meta">October 2026 · Misha</div>
+
+  <p>The Great Pyramid is about 2.3 million blocks stacked 146 meters high. It was the tallest thing humans had made for more than 3,700 years. It was built for one body. No body has ever been found in it.</p>
+
+  <p>As a tomb, it failed. As a project, it produced the first large territorial state run by professionals.</p>
+
+  <p>The Egyptologist Mark Lehner, who spent decades digging up the town where the builders lived, has put it the way this essay will: Egypt did not simply build the pyramids. The pyramids built Egypt.</p>
+
+  <h2><span class="course">First course</span>The stone asks questions</h2>
+
+  <p>Try to stack 2.3 million blocks in one reign and the stone starts making demands.</p>
+
+  <p>You need limestone from Tura, across the river. Granite from Aswan, 800 kilometers south. Copper from Sinai for the tools. Cedar from Lebanon; the royal annals record Sneferu importing forty shiploads. So you need ports, boats, quarry expeditions, and a foreign policy.</p>
+
+  <p>You need to feed the crew. Herodotus said 100,000 slaves. The archaeology says something closer to 20,000 to 30,000 workers, rotated, housed, and fed well. Lehner's site at Giza, a workers' town from a few reigns later, turned up industrial bakeries and enough animal bone to suggest more than 4,000 pounds of meat a day for a crew of about 10,000. That meat came from somewhere. So you need estates in the Delta, herds, a census to count them, and granaries to hold the surplus.</p>
+
+  <p>None of this existed at that scale before. The pyramid pulled it into existence. A country that had been a string of river villages under a god-king became a logistics network with a tax base.</p>
+
+  <h2><span class="course">Second course</span>Sneferu's three drafts</h2>
+
+  <p>Khufu gets the credit. His father did the R&amp;D.</p>
+
+  <p>Sneferu built three giant pyramids. Together they contain more stone than the Great Pyramid. The first, at Meidum, was reworked and eventually shed its outer casing. The second is the Bent Pyramid: it starts at about 54 degrees and, partway up, flinches to 43. Somebody looked at the cracks and changed the plan while the building was going up. The third, the Red Pyramid, uses the safe angle from the ground.</p>
+
+  <p>That is one reign, three attempts, and a visible learning curve in limestone. By the time Khufu's crews start at Giza, they can level a 13-acre base to within a couple of centimeters and point it at true north with an error of a fraction of a degree.</p>
+
+  <div class="pull">The knowledge did not exist before the project. It was a byproduct of failing at full scale.</div>
+
+  <h2><span class="course">Third course</span>Merer's logbook</h2>
+
+  <p>In 2013, at an ancient harbor on the Red Sea, Pierre Tallet's team found the oldest inscribed papyri ever recovered. They are not a prayer or a king list. They are a timesheet.</p>
+
+  <p>An inspector named Merer ran a crew of about forty. His logbook records, day by day, hauling limestone from Tura to Giza by boat in the last years of Khufu's reign. Load, sail, deliver, return. It notes the day a boat was sent to fetch the crew's food.</p>
+
+  <p>The oldest surviving papyrus document in the world is middle management reporting upward on a pyramid job.</p>
+
+  <p>That is the second thing the pyramid built: a habit of writing things down. Counting, measuring, scheduling, auditing. Work gangs were split into rotating units with names; their graffiti survives, including a crew that called itself the Drunkards of Menkaure. Somebody tracked which gang moved which block. Writing existed before the pyramids, but the pyramid age is when it became the operating system of the state.</p>
+
+  <h2><span class="course">Fourth course</span>The engineer beside the throne</h2>
+
+  <p>The first pyramid has a name attached that is not the king's. On the base of a statue of Djoser sits the name and titles of Imhotep, his chancellor. He is not known to have been royal. Two thousand years later Egyptians were worshipping him as a god.</p>
+
+  <p>Under Khufu the top jobs still went to family. His vizier and likely architect, Hemiunu, was a relative. The man running the Giza harbor in Merer's logbook, Ankhhaf, was the king's half-brother.</p>
+
+  <p>Then the workload outran the bloodline. By the Fifth Dynasty the high offices were going increasingly to men from outside the royal house, promoted because they could run things. By the Sixth, an official named Weni could start in a minor post and end as governor of Upper Egypt, and carve the whole career on his tomb wall.</p>
+
+  <p>The pyramid needed competence more than it needed cousins. So competence moved toward power.</p>
+
+  <h2><span class="course">Fifth course</span>Gigawatts of limestone</h2>
+
+  <p>Now the stone is silicon and the afterlife is called AGI.</p>
+
+  <p>After this summer's earnings calls, Amazon, Microsoft, Alphabet and Meta were guiding to more than $735 billion of capital spending for 2026, against roughly $410 billion the year before. A trillion in 2027 is the working assumption on Wall Street. Whether the god arrives is, for this argument, beside the point. Look at what the project is demanding on the way.</p>
+
+  <div class="table-wrap"><table>
+    <tr><th></th><th>Giza, c. 2560 BC</th><th>Data centers, 2026</th></tr>
+    <tr><td>Supply chain</td><td>Tura limestone, Aswan granite, Sinai copper, Lebanese cedar</td><td>Leading-edge fabs, memory, advanced packaging, transformers</td></tr>
+    <tr><td>Energy</td><td>Bread and beef for 20,000+</td><td>Gigawatt campuses, a Three Mile Island reactor being brought out of retirement</td></tr>
+    <tr><td>New class</td><td>Scribes, surveyors, overseers</td><td>Researchers, chip designers, grid and cooling engineers</td></tr>
+    <tr><td>Record-keeping</td><td>Merer's logbook</td><td>The model itself</td></tr>
+  </table></div>
+
+  <p>The United States is relearning how to build power plants and chip fabs because the stone asked for them. Export-control officials now write rules in units of compute. Governments that had no technical staff are hiring them, because you cannot regulate, buy, or fight with something you cannot read. The engineer is back beside the throne.</p>
+
+  <p>And the knowledge aggregation is no longer a side effect. In Egypt, building the monument happened to concentrate what people knew. Here, concentrating what people know <em>is</em> the monument.</p>
+
+  <h2><span class="course">Sixth course</span>The digital tomb</h2>
+
+  <p>Strip away the theology and a pyramid is a memory machine. Everything in it exists to stop one person from being forgotten.</p>
+
+  <p>The body is preserved. The name is cut into stone, because for Egyptians an erased name was an erased person. Djoser's statue sits sealed in a stone box with two eyeholes drilled at the angle of the northern stars. Khufu's 43-meter cedar boat was taken apart into 1,224 pieces and buried beside him, ready for reassembly. By the end of the Fifth Dynasty the walls themselves start talking: the Pyramid Texts, hundreds of spells carved inside the burial chambers so the king's passage would not depend on any living priest remembering the words.</p>
+
+  <p>Read that as an engineering spec. Capture everything. Lose nothing. Make it independent of the people who currently hold it in their heads.</p>
+
+  <p>That is the spec we have handed to AI. We trained it on every book, forum and codebase we could reach. Then we noticed it forgot yesterday's conversation, and treated that as a defect to engineer away: longer context, persistent memory, whole inboxes and archives poured in. There are companies that will build a chatbot from a dead parent's messages.</p>
+
+  <p>The Egyptians wrote letters to their dead. They inked them on bowls and left them at the tomb, asking for help with an illness or an inheritance fight. Nobody wrote back.</p>
+
+  <div class="pull">We are building the tomb again. This time it is for everyone, and it answers.</div>
+
+  <h2><span class="course">Capstone</span>Transcend, or outgrow</h2>
+
+  <p>There are two reasons to build something that remembers everything.</p>
+
+  <p>The first is the pharaoh's. Transcendence. One man stops being human and takes his place among the stars that never set. This is the AGI pitch in its honest form: a mind that is not bound by death, by forgetting, by a single lifetime. A successor.</p>
+
+  <p>The second is the scribe's. A human brain holds one lifetime, holds it badly, and takes it to the grave. Every generation starts close to zero. A master needs decades to make another master, and that has been the rate limit on civilization since the beginning. Writing was the first patch. Plato tells it as an Egyptian story: the god Theuth offers the king writing as a cure for forgetting, and the king replies that it will make people forget more. Both were right. Egypt lost some memory and gained a state.</p>
+
+  <p>Egypt also tells us which of the two actually gets delivered.</p>
+
+  <p>The pharaoh paid for the first and got the second. Khufu did not join the stars. His granite sarcophagus is still in the King's Chamber, and it is empty. What survived was Merer's logbook, the surveying, the arithmetic, the civil service. Transcendence was the funding pitch. Memory was the deliverable.</p>
+
+  <p>Expect the same again. The people signing the purchase orders want the god. What everyone else gets is an archive that can talk: the knowledge of every craft, no longer dying with the people who practiced it. That does not leave humanity behind. It removes its oldest limit.</p>
+
+  <p>After the Fourth Dynasty the pyramids got smaller and the masonry got worse. Egypt kept growing. The tomb had become optional. The thing it built had not.</p>
+
+  
+<div class="sources">
+    <h3>Sources</h3>
+    <p>
+      Mark Lehner, <em>The Complete Pyramids</em> (1997); Lehner &amp; Zahi Hawass, <em>Giza and the Pyramids</em> (2017).<br>
+      Pierre Tallet &amp; Mark Lehner, <em>The Red Sea Scrolls</em> (2021), on the Wadi al-Jarf papyri and Merer's logbook.<br>
+      Richard Redding's faunal analysis at Heit el-Ghurab (AERA) for the meat estimate, which describes the town under Menkaure.<br>
+      The Palermo Stone (Sneferu's cedar ships); the Autobiography of Weni, Abydos.<br>
+      Nigel Strudwick, <em>The Administration of Egypt in the Old Kingdom</em> (1985), on non-royal officeholders.<br>
+      The Pyramid Texts (pyramid of Unas, Saqqara); Egyptian Letters to the Dead; Plato, <em>Phaedrus</em> 274c–275b.<br>
+      Capex: <a href="https://platformonomics.com/?p=41900">Platformonomics, Q2 2026 scoreboard</a> for 2026 guidance; <a href="https://aiweekly.co/node/8566">summary of the FT tally</a> for the 2025 figure. Guidance moves every quarter.
+    </p>
+  </div>
+
+</article>
+
+
+<footer class="site-footer">
+  <span>Thought Horizon</span>
+  <a href="https://x.com/mishafyi" target="_blank" rel="noopener">@mishafyi</a>
+</footer>
+
+<div class="like-section">
+  <button class="like-btn" id="likeBtn" aria-label="Like this article">
+    <svg class="like-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <span class="like-count" id="likeCount">&mdash;</span>
+  </button>
+</div>
+
+<div class="social-footer">
+  <div class="share-row">
+    <a href="https://x.com/intent/tweet?url=https%3A%2F%2Fmishafyi.github.io%2Fblog%2Farticles%2Fpyramids-built-egypt.html&text=The%20Pyramids%20Built%20Egypt" target="_blank" rel="noopener" aria-label="Share on X (Twitter)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Share
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmishafyi.github.io%2Fblog%2Farticles%2Fpyramids-built-egypt.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Share
+    </a>
+    <button aria-label="Copy link to clipboard" onclick="navigator.clipboard.writeText(window.location.href);this.querySelector('span').textContent='Copied';">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+      <span>Copy link</span>
+    </button>
+    <div class="social-divider"></div>
+    <a href="https://x.com/mishafyi" target="_blank" rel="noopener" class="twitter-follow">@mishafyi</a>
+  </div>
+</div>
+
+
+
+<nav class="article-nav">
+  <div></div>
+  <a href="/blog/articles/ww3.html" class="next"><div class="nav-dir">Next &rarr;</div><div class="nav-title">The Third World War</div></a>
+</nav>
+
+<div class="reading-progress"></div>
+<button class="scroll-top" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function () {
+  var bar = document.querySelector('.reading-progress');
+  var btn = document.querySelector('.scroll-top');
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        var s = window.scrollY;
+        var d = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (d > 0 ? (s / d) * 100 : 0) + '%';
+        btn.classList.toggle('visible', s > 500);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+<script>
+(function () {
+  var nav = document.querySelector('.article-nav');
+  if (!nav) return;
+  var links = nav.querySelectorAll('a');
+  var prev = null, next = null;
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].classList.contains('next')) next = links[i].getAttribute('href');
+    else prev = links[i].getAttribute('href');
+  }
+  document.addEventListener('keydown', function (e) {
+    var tag = document.activeElement && document.activeElement.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    if (e.key === 'ArrowLeft' && prev) window.location.href = prev;
+    else if (e.key === 'ArrowRight' && next) window.location.href = next;
+    else if (e.key === 'h' || e.key === 'H') window.location.href = '/blog/';
+  });
+})();
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getDatabase, ref, get, runTransaction } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+  const app = initializeApp({
+    apiKey: "AIzaSyCMVArir7P4CfzytlyeBmpzVJUldxBanKA",
+    authDomain: "thought-horizon.firebaseapp.com",
+    databaseURL: "https://thought-horizon-default-rtdb.firebaseio.com",
+    projectId: "thought-horizon",
+    storageBucket: "thought-horizon.firebasestorage.app",
+    messagingSenderId: "672614008951",
+    appId: "1:672614008951:web:32f61162fa74a7b0fd9e72"
+  });
+
+  const db = getDatabase(app);
+  const articleId = "pyramids-built-egypt";
+  const likesRef = ref(db, "likes/" + articleId);
+  const storageKey = "liked_" + articleId;
+  const btn = document.getElementById("likeBtn");
+  const countEl = document.getElementById("likeCount");
+
+  if (localStorage.getItem(storageKey)) btn.classList.add("liked");
+
+  get(likesRef).then(function (snap) {
+    countEl.textContent = snap.exists() ? snap.val() : 0;
+  }).catch(function () { countEl.textContent = 0; });
+
+  btn.addEventListener("click", function () {
+    if (localStorage.getItem(storageKey)) return;
+    localStorage.setItem(storageKey, "1");
+    btn.classList.add("liked");
+    runTransaction(likesRef, function (current) { return (current || 0) + 1; })
+      .then(function (result) { countEl.textContent = result.snapshot.val(); });
+  });
+</script>
+
+</body>
+</html>
