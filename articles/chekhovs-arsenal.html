@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+<title>Chekhov&#39;s Arsenal — Thought Horizon</title>
+<meta name="description" content="The Soviet Union hung fifty thousand guns on the wall and died before the third act. A theory of the war in Ukraine as deferred stagecraft.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Chekhov&#39;s Arsenal">
+<meta property="og:description" content="The empire hung its guns on the wall and died before the third act. The play went on.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://mishafyi.github.io/blog/articles/chekhovs-arsenal.html">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@mishafyi">
+<meta name="twitter:title" content="Chekhov&#39;s Arsenal">
+<meta name="twitter:description" content="The empire hung its guns on the wall and died before the third act. The play went on.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+
+<style>/* ============================================================
+   Shared "chrome" for every Thought Horizon article.
+   Loaded at the END of <body> so it deterministically wins over
+   any leftover chrome rules in an article's own <style>.
+   Colors come from each article's :root; fallbacks cover the
+   two palette dialects (--bg-card vs --surface, etc.).
+   Mono + serif resolve to whichever face the article loaded.
+   ============================================================ */
+
+:root {
+  --th-card: var(--bg-card, var(--surface, #141418));
+  --th-muted: var(--text-muted, var(--text-dim, #8a8880));
+  --th-glow: var(--accent-glow, rgba(127, 127, 127, 0.12));
+  --th-mono: "JetBrains Mono", ui-monospace, monospace;
+  --th-serif: "Instrument Serif", "Playfair Display", Georgia, serif;
+  --th-width: var(--content-width, 740px);
+}
+
+/* ── Grain overlay ── */
+.th .grain {
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* ── Back link ── */
+.th .blog-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 24px 32px;
+  z-index: 100;
+}
+.th .blog-nav a {
+  font-family: var(--th-mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--th-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.th .blog-nav a:hover {
+  color: var(--accent);
+}
+.th .blog-nav .arrow {
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform 0.2s ease;
+}
+.th .blog-nav a:hover .arrow {
+  transform: translateX(-3px);
+}
+
+/* ── Footer ── */
+.th .site-footer {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 48px 24px 8px;
+  font-family: var(--th-mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.th .site-footer a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ── Like button ── */
+.th .like-section {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 8px 24px 40px;
+  display: flex;
+  justify-content: center;
+}
+.th .like-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--th-card);
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  padding: 14px 28px;
+  cursor: pointer;
+  transition: border-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  color: var(--text-dim);
+  font-family: var(--th-mono);
+  font-size: 14px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.th .like-btn:hover {
+  border-color: var(--accent);
+  transform: scale(1.04);
+  box-shadow: 0 0 20px var(--th-glow);
+}
+.th .like-btn.liked {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.th .like-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: fill 0.3s, transform 0.3s;
+}
+.th .like-btn.liked .like-icon {
+  fill: var(--accent);
+  animation: thLikePop 0.4s cubic-bezier(0.17, 0.89, 0.32, 1.49);
+}
+@keyframes thLikePop {
+  0% { transform: scale(0.6); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+.th .like-count {
+  font-variant-numeric: tabular-nums;
+  min-width: 20px;
+}
+
+/* ── Share row ── */
+.th .social-footer {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 0 24px 3rem;
+}
+.th .share-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.th .share-row a,
+.th .share-row button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--th-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-dim);
+  background: none;
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.th .share-row a:hover,
+.th .share-row button:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.th .share-row svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+.th .social-divider {
+  width: 1px;
+  height: 20px;
+  background: var(--border);
+  margin: 0 4px;
+}
+.th .twitter-follow {
+  margin-left: auto;
+  border: none !important;
+  padding: 8px 0 !important;
+}
+
+/* ── Prev / next ── */
+.th .article-nav {
+  max-width: var(--th-width);
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  border-top: 1px solid var(--border);
+}
+.th .article-nav a {
+  text-decoration: none;
+  display: block;
+  transition: color 0.2s, transform 0.2s;
+}
+.th .article-nav a:hover {
+  transform: translateX(-4px);
+}
+.th .article-nav a:hover .nav-dir,
+.th .article-nav a:hover .nav-title {
+  color: var(--accent);
+}
+.th .article-nav .next {
+  text-align: right;
+  margin-left: auto;
+}
+.th .article-nav .next:hover {
+  transform: translateX(4px);
+}
+.th .nav-dir {
+  font-family: var(--th-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  transition: color 0.2s;
+}
+.th .nav-title {
+  font-family: var(--th-serif);
+  font-size: 1.15rem;
+  color: var(--text);
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+
+/* ── Reading progress + scroll-to-top ── */
+.th .reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: var(--accent);
+  z-index: 9999;
+  pointer-events: none;
+  will-change: width;
+}
+.th .scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, color 0.3s;
+  z-index: 99;
+  padding: 0;
+}
+.th .scroll-top:hover {
+  color: var(--accent);
+}
+.th .scroll-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+  .th .blog-nav { padding: 16px 16px; }
+  .th .article-nav { flex-direction: column; gap: 24px; padding: 40px 16px 60px; }
+  .th .article-nav .next { text-align: left; margin-left: 0; }
+  .th .social-footer { padding: 0 1.2rem 2rem; }
+  .th .share-row { gap: 10px; }
+  .th .social-divider { display: none; }
+  .th .twitter-follow { margin-left: 0; }
+  .th .site-footer { padding: 32px 16px 8px; }
+}
+
+/* ── Print: drop all chrome ── */
+@media print {
+  .th .grain,
+  .th .blog-nav,
+  .th .site-footer,
+  .th .like-section,
+  .th .social-footer,
+  .th .article-nav,
+  .th .reading-progress,
+  .th .scroll-top {
+    display: none !important;
+  }
+}
+</style>
+</head>
+<body class="th">
+
+<div class="grain" aria-hidden="true"></div>
+<nav class="blog-nav"><a href="/blog/"><span class="arrow">&larr;</span> Thought Horizon</a></nav>
+
+<style>
+  :root {
+    --bg: #0a0a0c;
+    --surface: #111114;
+    --border: #1e1e24;
+    --text: #c8c5be;
+    --text-dim: #6b6860;
+    --text-bright: #eae7df;
+    --accent: #c49a6c;
+    --accent-dim: #8a6d4b;
+    --red: #8b3a3a;
+    --blue-dim: #3a4a6b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  ::selection { background: var(--accent); color: #0a0a0c; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .grain {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  /* --- HERO --- */
+  .hero {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: none;
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.2s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--text-bright);
+    max-width: 14ch;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.4s forwards;
+  }
+
+  .hero h1 span.year {
+    color: var(--text-bright);
+  }
+
+  .hero-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--text-dim);
+    font-weight: 300;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.7s forwards;
+  }
+
+  .hero-meta {
+    margin-top: 3rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    opacity: 0;
+    animation: fadeUp 1s ease 1s forwards;
+  }
+
+  .scroll-line {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--accent-dim), transparent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* --- ARTICLE --- */
+  .article {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem 8rem;
+  }
+
+  .article p {
+    margin-bottom: 1.6rem;
+    color: var(--text);
+  }
+
+  .article p.punch {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    line-height: 1.4;
+    font-weight: 400;
+    font-style: italic;
+    text-align: center;
+    color: var(--text-bright);
+    margin: 3.2rem auto;
+    max-width: 26em;
+    letter-spacing: 0.005em;
+    position: relative;
+    padding-top: 1.6rem;
+  }
+
+  .article p.punch::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.2rem;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.7;
+  }
+
+  .article p:first-of-type::first-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem;
+    float: left;
+    line-height: 0.8;
+    margin-right: 0.12em;
+    margin-top: 0.08em;
+    color: var(--accent);
+  }
+
+  .section-break {
+    text-align: center;
+    margin: 3.5rem 0;
+    color: var(--accent-dim);
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+    opacity: 0.4;
+  }
+
+  .chapter {
+    margin-top: 5rem;
+    margin-bottom: 2.2rem;
+    padding-top: 2.4rem;
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1.1rem;
+    align-items: baseline;
+  }
+
+  .chapter .numeral {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.9rem;
+    line-height: 0.9;
+    color: var(--accent);
+    opacity: 0.5;
+    grid-row: 1 / 3;
+    align-self: center;
+  }
+
+  .chapter .titles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .chapter .chapter-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.7rem;
+    line-height: 1.1;
+    color: var(--text-bright);
+    letter-spacing: -0.01em;
+  }
+
+  .chapter .chapter-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.85;
+  }
+
+  /* legacy single-line heading kept for any unconverted spots */
+  .section-heading {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.45rem;
+    color: var(--text-bright);
+    margin-bottom: 1.8rem;
+    margin-top: 4.5rem;
+    padding-top: 2.2rem;
+    border-top: 1px solid var(--border);
+    letter-spacing: -0.01em;
+  }
+
+  .pullquote {
+    margin: 4rem auto;
+    padding: 2.2rem 0;
+    max-width: 32em;
+    border-top: 1px solid var(--text-dim);
+    border-bottom: 1px solid var(--border);
+    border-left: none;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.55rem;
+    line-height: 1.45;
+    color: var(--text-bright);
+    text-align: center;
+  }
+
+  .stat-block {
+    margin: 3rem 0;
+    padding: 1.8rem 0;
+    border-top: 1px solid var(--text);
+    border-bottom: 1px solid var(--border);
+    background: transparent;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+
+  .stat-block .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.9rem;
+  }
+
+  .stat-block .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.4rem;
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.9rem;
+  }
+
+  .stat-block .stat-note {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--text);
+    margin-top: 0;
+    line-height: 1.55;
+    max-width: 42em;
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1rem;
+    align-items: baseline;
+  }
+
+  .timeline-item .year-mark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    white-space: nowrap;
+    min-width: 3.5rem;
+  }
+
+  .timeline-item .event {
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  .emphasis {
+    color: var(--text-bright);
+  }
+
+  .dim {
+    color: var(--text-dim);
+  }
+
+  .sources-note {
+    margin-top: 5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  .sources-note .sources-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-style: normal;
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .sources-note p {
+    margin-bottom: 1.1rem;
+    color: var(--text-dim);
+  }
+
+  .sources-note p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ledger {
+    margin: 2.5rem 0 3rem;
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 1px solid var(--text-dim);
+    border-bottom: 1px solid var(--text-dim);
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+
+  .ledger caption {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    text-align: left;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.5rem;
+    caption-side: top;
+  }
+
+  .ledger th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 500;
+    text-align: left;
+    padding: 0.8rem 0.5rem 0.8rem 0;
+    border-bottom: 1px solid var(--border);
+    vertical-align: bottom;
+  }
+
+  .ledger th:last-child {
+    text-align: right;
+    padding-right: 0;
+  }
+
+  .ledger td {
+    padding: 0.65rem 0.5rem 0.65rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.92rem;
+    line-height: 1.4;
+    vertical-align: top;
+  }
+
+  .ledger td.conflict {
+    color: var(--text-bright);
+    font-weight: 400;
+  }
+
+  .ledger td.years {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .ledger td.deaths {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    text-align: right;
+    white-space: nowrap;
+    padding-right: 0;
+  }
+
+  .ledger td.side {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    padding-right: 1rem;
+  }
+
+  .ledger td.side .patron {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .ledger td.side .qty {
+    color: var(--text-faint, #6a6a72);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ledger .footmark {
+    color: var(--accent);
+    font-weight: 700;
+    margin-left: 0.15em;
+  }
+
+  .ledger-notes {
+    margin: 0 0 3rem 0;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: var(--text-dim);
+    font-style: italic;
+    max-width: 100%;
+    padding-left: 0;
+  }
+
+  .ledger-notes .footmark {
+    color: var(--accent);
+    font-weight: 700;
+    font-style: normal;
+    margin-right: 0.2em;
+  }
+
+  .ledger tr:last-child td {
+    border-bottom: none;
+  }
+
+  .ledger tr.total td {
+    border-top: 1px solid var(--text-dim);
+    padding-top: 1rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .ledger tr.total td.conflict {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-weight: 500;
+  }
+
+  .ledger tr.total td.deaths {
+    font-size: 1.5rem;
+  }
+
+  /* --- CHART --- */
+  .chart {
+    margin: 2.5rem 0 3rem;
+    padding: 0;
+  }
+
+  .chart svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .chart figcaption {
+    margin-top: 0.8rem;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--text-dim);
+    line-height: 1.5;
+    max-width: 42em;
+  }
+
+  /* --- FOOTER --- */
+  .article-footer {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .article-footer .blog-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent-dim);
+    margin-bottom: 0.5rem;
+  }
+
+  .article-footer .author {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+  }
+
+  /* --- ANIMATIONS --- */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.6; }
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .article { padding: 0 1.2rem 6rem; }
+    .pullquote { font-size: 1.25rem; padding: 1.6rem 0; margin: 3rem auto; }
+    .stat-block .stat-value { font-size: 2.6rem; }
+    .hero { min-height: 80vh; padding: 3rem 1.5rem; }
+    .ledger { font-size: 0.78rem; }
+    .ledger td { padding: 0.5rem 0.3rem 0.5rem 0; }
+    .ledger td.conflict { font-size: 0.78rem; }
+    .ledger td.years { font-size: 0.62rem; }
+    .ledger td.side { font-size: 0.68rem; padding-right: 0.4rem; line-height: 1.35; }
+    .ledger td.deaths { font-size: 0.82rem; }
+    .ledger tr.total td.deaths { font-size: 1.1rem; }
+    .ledger th { font-size: 0.5rem; letter-spacing: 0.12em; }
+    .ledger-notes { font-size: 0.72rem; }
+    .chapter { column-gap: 0.8rem; padding-top: 2rem; margin-top: 4rem; }
+    .chapter .numeral { font-size: 2.2rem; }
+    .chapter .chapter-title { font-size: 1.4rem; }
+    .chapter .chapter-subtitle { font-size: 0.6rem; letter-spacing: 0.14em; }
+  }
+</style>
+
+<section class="hero">
+  <div class="hero-label">Thought Horizon</div>
+  <h1>Chekhov's Arsenal</h1>
+  <p class="hero-subtitle">The empire hung its guns on the wall and died before the third act. The play went on.</p>
+  <p class="hero-meta">August 2026 &nbsp;&middot;&nbsp; Misha</p>
+  <div class="scroll-line"></div>
+</section>
+
+<article class="article">
+
+<p>In the autumn of 1889, Anton Chekhov sent a letter to a young writer who had asked him to look over a play. Buried in the advice was a rule that outlived everything else he ever said about the theater: you cannot put a loaded rifle on the stage if no one intends to fire it. A prop is a promise. Hang a gun on the wall in the first act, and before the curtain falls it has to come down.</p>
+
+<p>Chekhov was born in Taganrog, a grain port on the Sea of Azov. Follow the coastline west from his birthplace for a two-hour drive and you reach Mariupol. The stage he learned to read is the stage of this war.</p>
+
+<p>The rule was about plays. It is also the most compact theory of the war in Ukraine that I know. The Soviet Union was the most committed set dresser in the history of the theater. It hung not one rifle but an arsenal the size of a civilization — and then, in 1991, the playwright died during the intermission. The guns stayed on the wall. They aged, they leaked, they cost money, they employed millions, and they whispered the same suggestion, every year, to whoever governed the stage. Thirty years later they came down.</p>
+
+<p>One clause in that story is doing careful work, and I will return to it: guns do not fire themselves. A man fired these. But pressure is not innocence, and an arsenal is not furniture. Start with the set.</p>
+
+<div class="chapter">
+  <div class="numeral">I</div>
+  <div class="titles">
+    <div class="chapter-title">The Set Dresser</div>
+    <div class="chapter-subtitle">Act One &middot; 1945&ndash;1991</div>
+  </div>
+</div>
+
+<p>The Soviet Union left the Second World War with a conclusion burned into it at the price of 27 million dead: never again be the side with fewer shells. Safety meant mass. Mass meant production. And production, in a command economy, had no natural brake — no shareholder asking why the state needed a fifth decade of tank output, no price signal to say the marginal shell was worth less than the marginal hospital.</p>
+
+<p>So it produced. By the late 1980s, Western estimates put the Soviet tank park above 50,000 — more than the next several armies combined — with artillery counted in tens of thousands of tubes and ammunition in millions of tonnes, dispersed across depots from the Elbe to the Pacific. Analysts guessed the military was consuming somewhere between 15% and 25% of the entire economy, and they had to guess, because the true ledger was classified even from most of the government it belonged to. The plant at Nizhny Tagil, Uralvagonzavod, was by most measures the largest tank factory on earth, and whole cities existed to feed production lines like it. Soviet doctrine called for deep operations in successive echelons; echelons demanded steel; steel demanded a society organized around pouring it.</p>
+
+<p class="punch">Chekhov asked for one loaded rifle. The Soviet Union hung fifty thousand.</p>
+
+<p>Then, in December 1991, the author walked off the stage and died. The set remained.</p>
+
+<div class="chapter">
+  <div class="numeral">II</div>
+  <div class="titles">
+    <div class="chapter-title">The Intermission</div>
+    <div class="chapter-subtitle">1991&ndash;2022 &middot; The Guns Begin to Rot</div>
+  </div>
+</div>
+
+<p>The inheritance split along the new borders. Russia took the largest share. Ukraine woke up as one of the most heavily armed states on the planet: some 6,500 tanks in its new army — the broadest counts of every hull on its soil ran toward 9,000 — a holding the CFE treaty's Tashkent protocol soon capped at 4,080; roughly 30% of the Soviet defense industry, some 700 enterprises and more than a million employees by SIPRI's count; more than a million tonnes of ammunition in sprawling depots; and the third-largest nuclear arsenal on earth, about 1,900 strategic warheads, signed away at Budapest in 1994 for assurances printed on paper. Note the asymmetry that moment revealed. The one gun on the wall that could never actually be fired was the only one the world paid to take down. Warheads frightened the great powers, so Nunn-Lugar money dismantled them, carefully and verifiably. Shells merely bored them. The shells stayed.</p>
+
+<p>And shells do not keep. Artillery propellant is nitrocellulose held in check by chemical stabilizers, and stabilizers deplete on a schedule measured in decades; past that schedule, a shell stops being an instrument and becomes an experiment. Rubber perishes, gaskets crack, wiring oxidizes, optics fog, rocket motors fissure. A tank parked outdoors is a donor carcass within twenty years. An arsenal, in other words, is not a savings account. It is an actuarial table — and every line on this one was written in the 1970s and 1980s.</p>
+
+<p>Worse, the exit costs money. A state pays for ammunition three times: once to make it, once to guard it, and once to destroy it, because demilitarization — taking apart millions of aging explosive objects one by one — is slower and dearer than anyone who has not priced it assumes. The United States put more than $40 million into Ukraine's stockpile problem between 2004 and 2018 through its Conventional Weapons Destruction program, an earnest effort that, set against more than a million tonnes, was arithmetic for a century.</p>
+
+<p>Russia tried the honest exit, and it blew up in its hands. From 2009 its army disposed of aging stock the Soviet way — trucking it to ranges and detonating it — and the campaign became a small war against itself: the Ulyanovsk arsenal in 2009, Pugachevo in 2011 with 28,000 people evacuated, Ashuluk that same summer. A deputy chair of the government's own military-industrial commission later put the toll at about fifty soldiers and civilians killed, with several arsenals destroyed outright by the work meant to empty them. At the end of 2013 the detonations were stopped completely. The wall kept its guns; the following spring, Crimea.</p>
+
+<p>So the heirs looked for other exits. Ukraine spent the 1990s and 2000s running the estate sale of the empire, one of the busiest arms exporters alive, retailing the inheritance to whoever paid. The sale's most honest moment came in 2008, when Somali pirates seized the freighter Faina and found 33 T-72 tanks below decks — bound, according to the paperwork, for Kenya, and according to nearly everyone else, for South Sudan.</p>
+
+<p>The stock that found no buyer began to dispose of itself. In October 2015 a depot near Svatove burned through 3,500 tonnes and damaged 1,700 homes. In March 2017 came Balakliia — roughly 125,000 tonnes on 350 hectares, one of the largest ammunition dumps on earth — where about 70,000 tonnes detonated over days, drove 20,000 people from their homes, killed a civilian and cost, by later estimates, on the order of a billion dollars. Six months after that, Kalynivka burned some 32,000 tonnes of shells in a night; RFE/RL noted this was more tonnage than Ukraine's army had fired in three years of actual war in the Donbas. Kyiv blamed Russian sabotage, with reason — investigators described drones dropping thermite grenades, and had pulled a Russian incendiary grenade off a depot roof after an earlier attempt — but every inquiry also found the same background condition: obsolete munitions, overstocked, cheaply kept. Whether the spark was a saboteur or entropy, the fuel was the inheritance itself. Ukraine's security chief called the two 2017 fires the worst blow to the country's combat capability since 2014. No enemy had fired a shot at either depot. The first act was attacking the theater.</p>
+
+<p>One prop from that act still hangs. At Cobasna, in Transnistria, some 20,000 tonnes of Soviet ammunition sits to this day under Russian guard, aging on the border of Moldova and Ukraine. One Moldovan expert assessment put a full detonation on the order of the Hiroshima blast. Nobody can afford to remove it, nobody dares fire it, and so it waits — the purest Chekhovian object in Europe.</p>
+
+<div class="pullquote">A state pays for ammunition three times: once to make it, once to guard it, once to destroy it. Firing it is the only line in the ledger that ever feels like use.</div>
+
+<div class="chapter">
+  <div class="numeral">III</div>
+  <div class="titles">
+    <div class="chapter-title">The Constituency</div>
+    <div class="chapter-subtitle">A Stockpile Is a Lobby</div>
+  </div>
+</div>
+
+<p>Chemistry is only half the mechanism. The other half is sociology, because an arsenal never arrives alone. It comes with design bureaus, repair plants, procurement directorates, garrison towns, single-factory cities and an officer corps whose ranks are indexed to inventory. Steel employs people, and people vote for the steel. In December 2011, when Moscow's middle class filled the streets over a rigged election, a foreman from Uralvagonzavod went on Vladimir Putin's live call-in show and offered to bring his men to the capital to help deal with the protesters. Five months later, Putin made him presidential envoy to the Urals. The arsenal does not just sit on the wall. It votes, it lobbies, it staffs the government that decides its fate.</p>
+
+<p>And depreciation hands that lobby a deadline. Every quiet year converted more of the inheritance from asset to liability. Modernizing 50,000 units of Cold War steel was unaffordable. Scrapping it was expensive and, worse, humiliating — a public admission that the empire's savings had been counterfeit all along. Which left the third option, the one the wall had been suggesting from the beginning. By the late 2010s the Russian state was reading its own actuarial table: the mass that made it a great power on paper was aging out of usability, and the men whose careers were built on that mass could read the same table. Historians have a name for the family of wars this produces — preventive war, fought not because victory looks attractive but because waiting looks expensive. Germany in 1914 watched Russia's railways and decided that later meant never. Japan in 1941 watched its oil gauge. Armies that believe their advantage is wasting develop an appetite for windows.</p>
+
+<p class="punch">The stockpile did not cause the war. It set the deadline.</p>
+
+<div class="chapter">
+  <div class="numeral">IV</div>
+  <div class="titles">
+    <div class="chapter-title">The Third Act</div>
+    <div class="chapter-subtitle">2022&ndash; &middot; The Liquidation</div>
+  </div>
+</div>
+
+<p>The invasion leaned on the inheritance from its first hour — the columns of Soviet-designed armor rolling toward Kyiv were the estate itself, dressed as an army. And when the two-week war failed, the fighting settled into the only shape the warehouse could feed: artillery attrition, tens of thousands of shells a day at the 2022 peak, Soviet doctrine resurrected because Soviet stock demanded it. You do not fight the war you want. You fight the war your warehouse contains.</p>
+
+<p>The drawdown is visible from orbit. Independent analysts who count Russia's open-air storage bases by satellite — Covert Cabal, the researcher known as Jompy — put roughly 7,300 tanks in storage across 22 facilities before the invasion. By June 2026 the count stood near 2,100 across nine, of which perhaps 850 remain restorable and none, by Covert Cabal's assessment, is in decent condition. The largest type left is the T-62, an excellent tank 50 years ago. T-54s and T-55s, designed while Stalin was alive, were riding flatcars toward the front by the spring of 2023. New production — around 200 to 250 tanks a year, going by leaked factory documents and British estimates — replaces a fraction of the more than 4,000 visually confirmed losses. The war is consuming its own precondition.</p>
+
+<p>As the heirs' stock thinned, the vacuum reached for the last great unfired Soviet-pattern arsenal on earth: North Korea's. Between 2023 and early 2026, by the Important Stories and Open Source Centre investigation, Pyongyang shipped Russia somewhere between 8 and 11 million shells and rockets; South Korean intelligence has put the figure above 12 million. Reuters-cited assessments had those deliveries providing, at times, three-quarters to all of Russia's daily artillery fire, and roughly half of its front-line munitions as of this summer — until North Korea's own stockpile reportedly began to thin and its shell quality to slip. Chekhov's rule, propagating down the 152-millimeter supply chain: every wall on earth that holds Soviet-caliber guns is being checked for its third act.</p>
+
+<p>Including the West's. Ukraine fired its own inheritance first, in self-defense — the war's bitterest symmetry is two heirs shooting the same estate at each other. Then Europe's attics opened. Czechia sent T-72s in the first spring. Germany un-retired Gepard anti-aircraft tanks it had withdrawn in 2010. Leopard 1s came out of industrial storage, Balkan shell lines spun back up, and American Stingers built in the 1990s went to the front — their production line restarted after a two-decade pause. Notice the pattern in what got given: donation came easiest where expiry stood nearest. The war became the disposal program the 1990s never funded, run at market speed and paid in people.</p>
+
+<div class="chapter">
+  <div class="numeral">V</div>
+  <div class="titles">
+    <div class="chapter-title">The Playwright's Note</div>
+    <div class="chapter-subtitle">What Chekhov Actually Said</div>
+  </div>
+</div>
+
+<p>Now the caveat that keeps this essay honest. Guns do not pull triggers. This war has an author — a specific man with a specific revanchist theory of history, who chose it, kept choosing it, and could have chosen otherwise at every point. Structure loads the stage; a person still has to walk on and fire. Switzerland has sat on mountains of munitions for a century and invaded no one. The CFE treaty proved removal was possible: tens of thousands of pieces of Cold War equipment were verifiably cut apart in the 1990s while inspectors from the other side watched. An arsenal is pressure, not fate.</p>
+
+<p>But reread the rule, because it is almost always quoted backwards. Chekhov gets cited as prophecy: the hung gun must fire. He wrote it as instruction: if it will not be fired, do not hang it — and take down the ones already hanging. The rule is addressed to the author, not the audience. It is about removal. The world grasped this once, narrowly, when it paid billions to carry the nuclear warheads off the post-Soviet stage — then declined to fund the boring version of the same program for the conventional stockpile, because shells frightened no one in Washington or Brussels. A million tonnes here, seven thousand hulls there, waiting for weather, sabotage or a decision.</p>
+
+<p>And now the world is dressing the next set. Rearmament is general — shell plants reopening on three continents, drone stockpiles counted in the millions, procurement everywhere written in the language of urgency. So carry one detail out of this essay: the new props expire faster than the old ones. A Soviet shell could wait 30 years for its act. A drone is obsolete in two, its software in months, its battery sooner. Every state now filling its warehouses is setting itself a shorter deadline than the Soviet Union set — on a stage with far more authors.</p>
+
+<p>Chekhov wrote his rule for a theater where a rifle could hang for a generation without complaint. We are building theaters where it cannot wait five years. The intermissions are getting shorter.</p>
+
+<div class="sources-note">
+  <span class="sources-label">Sources &amp; Notes</span>
+
+  <p>Chekhov's rule appears in his 1889 letters; the translation here is mine. Ukraine's inheritance draws on SIPRI's account of the post-Soviet arms industry and CFE-era force counts; the depot fires on RFE/RL's reporting and official Ukrainian statements, whose figures conflict in places (Kalynivka's stored tonnage is variously given as 83,000 or more than 200,000 tonnes). Ukraine's Tashkent-protocol tank ceiling of 4,080 is from the CFE record; inheritance counts range from 6,500 in the armed forces to 9,000 on Ukrainian soil, depending on what is counted. Russia's 2009–2013 disposal campaign and its halt are from Russian press accounts, including the military-industrial commission's own death-toll admission. Russian storage numbers are the satellite counts of Covert Cabal and the analyst Jompy; North Korean transfer estimates come from the Important Stories/Open Source Centre investigation, RUSI and Reuters-cited assessments, and range from roughly 5 million to more than 12 million rounds. Every number in this essay carries a real error bar. The argument does not need the digits, only the order of magnitude — and the order of magnitude is not in dispute.</p>
+
+  <p>The causal claim is deliberately limited. A stockpile is one pressure among several on the decision for war; this essay argues that it shapes the timing and the form of the war more than it supplies the intent.</p>
+</div>
+
+</article>
+
+
+<footer class="site-footer">
+  <span>Thought Horizon</span>
+  <a href="https://x.com/mishafyi" target="_blank" rel="noopener">@mishafyi</a>
+</footer>
+
+<div class="like-section">
+  <button class="like-btn" id="likeBtn" aria-label="Like this article">
+    <svg class="like-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <span class="like-count" id="likeCount">&mdash;</span>
+  </button>
+</div>
+
+<div class="social-footer">
+  <div class="share-row">
+    <a href="https://x.com/intent/tweet?url=https%3A%2F%2Fmishafyi.github.io%2Fblog%2Farticles%2Fchekhovs-arsenal.html&text=Chekhov&#39;s%20Arsenal" target="_blank" rel="noopener" aria-label="Share on X (Twitter)">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      Share
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fmishafyi.github.io%2Fblog%2Farticles%2Fchekhovs-arsenal.html" target="_blank" rel="noopener" aria-label="Share on LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      Share
+    </a>
+    <button aria-label="Copy link to clipboard" onclick="navigator.clipboard.writeText(window.location.href);this.querySelector('span').textContent='Copied';">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+      <span>Copy link</span>
+    </button>
+    <div class="social-divider"></div>
+    <a href="https://x.com/mishafyi" target="_blank" rel="noopener" class="twitter-follow">@mishafyi</a>
+  </div>
+</div>
+
+
+
+<nav class="article-nav">
+  <a href="/blog/articles/pyramids-built-egypt.html"><div class="nav-dir">&larr; Previous</div><div class="nav-title">The Pyramids Built Egypt</div></a>
+  <a href="/blog/articles/ww3.html" class="next"><div class="nav-dir">Next &rarr;</div><div class="nav-title">The Third World War</div></a>
+</nav>
+
+<div class="reading-progress"></div>
+<button class="scroll-top" aria-label="Scroll to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+(function () {
+  var bar = document.querySelector('.reading-progress');
+  var btn = document.querySelector('.scroll-top');
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      requestAnimationFrame(function () {
+        var s = window.scrollY;
+        var d = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (d > 0 ? (s / d) * 100 : 0) + '%';
+        btn.classList.toggle('visible', s > 500);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+<script>
+(function () {
+  var nav = document.querySelector('.article-nav');
+  if (!nav) return;
+  var links = nav.querySelectorAll('a');
+  var prev = null, next = null;
+  for (var i = 0; i < links.length; i++) {
+    if (links[i].classList.contains('next')) next = links[i].getAttribute('href');
+    else prev = links[i].getAttribute('href');
+  }
+  document.addEventListener('keydown', function (e) {
+    var tag = document.activeElement && document.activeElement.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    if (e.key === 'ArrowLeft' && prev) window.location.href = prev;
+    else if (e.key === 'ArrowRight' && next) window.location.href = next;
+    else if (e.key === 'h' || e.key === 'H') window.location.href = '/blog/';
+  });
+})();
+</script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-app.js";
+  import { getDatabase, ref, get, runTransaction } from "https://www.gstatic.com/firebasejs/12.11.0/firebase-database.js";
+
+  const app = initializeApp({
+    apiKey: "AIzaSyCMVArir7P4CfzytlyeBmpzVJUldxBanKA",
+    authDomain: "thought-horizon.firebaseapp.com",
+    databaseURL: "https://thought-horizon-default-rtdb.firebaseio.com",
+    projectId: "thought-horizon",
+    storageBucket: "thought-horizon.firebasestorage.app",
+    messagingSenderId: "672614008951",
+    appId: "1:672614008951:web:32f61162fa74a7b0fd9e72"
+  });
+
+  const db = getDatabase(app);
+  const articleId = "chekhovs-arsenal";
+  const likesRef = ref(db, "likes/" + articleId);
+  const storageKey = "liked_" + articleId;
+  const btn = document.getElementById("likeBtn");
+  const countEl = document.getElementById("likeCount");
+
+  if (localStorage.getItem(storageKey)) btn.classList.add("liked");
+
+  get(likesRef).then(function (snap) {
+    countEl.textContent = snap.exists() ? snap.val() : 0;
+  }).catch(function () { countEl.textContent = 0; });
+
+  btn.addEventListener("click", function () {
+    if (localStorage.getItem(storageKey)) return;
+    localStorage.setItem(storageKey, "1");
+    btn.classList.add("liked");
+    runTransaction(likesRef, function (current) { return (current || 0) + 1; })
+      .then(function (result) { countEl.textContent = result.snapshot.val(); });
+  });
+</script>
+
+</body>
+</html>
